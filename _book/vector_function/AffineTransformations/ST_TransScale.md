@@ -7,12 +7,12 @@
 geometry ST_TransScale(geometry geomA, float deltaX, float deltaY, float XFactor, float YFactor);
 ```
 参数说明：
-    
-    geomA:输入图形。
-    deltaX：x方向偏移量。
-    deltaY：y方向偏移量。
-    XFactor：x轴缩放因子。
-    YFactor：y轴缩放因子。
+      	geomA:输入图形。
+     	 deltaX：x方向偏移量。
+      	deltaY：y方向偏移量。
+      	XFactor：x轴缩放因子。
+      	YFactor：y轴缩放因子。
+
 ### 应用示例
 
 对LINESTRING(0 0, 3 3)先平移1 1，再缩放0.5，0.25：
