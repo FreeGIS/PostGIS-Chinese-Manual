@@ -1,0 +1,38 @@
+﻿{
+	"title" : "PostGIS中文开发指南",
+	"author" : "xxx",
+	"description" : "记录PostGIS使用入门，进阶，提高，附带API全解析",
+	"plugins":[
+		"chapter-fold",
+		"pageview-count",
+		"prism", 
+		"-highlight",
+		"custom-favicon",
+		"sharing-plus",
+		"-sharing",
+		"emphasize",
+		"-lunr", 
+		"-search", 
+		"search-pro",
+		"graph"
+	],
+	"pluginsConfig": {
+		"prism": {
+			"css": [
+				"prismjs/themes/prism-okaidia.css"
+			]
+		},
+		"favicon": "../gitbook/images/favicon.ico",
+		"sharing": {
+			"douban": false,
+			"facebook": false,
+			"google": false,
+			"line": false,
+			"qq": true,
+			"qzone": true,
+			"weibo": true,
+			"whatsapp": false
+		}
+
+	}
+}
