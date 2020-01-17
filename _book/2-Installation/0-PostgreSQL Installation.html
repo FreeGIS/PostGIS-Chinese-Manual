@@ -1,0 +1,521 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 PostgreSQL安装 · PostGIS中文开发指南</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="xxx">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1-PostGIS Installation.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1-Getting Started/README.md">
+            
+                <span>
+            
+                    
+                    一 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1-Getting Started/1-TEST.md">
+            
+                <span>
+            
+                    
+                    Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    二 安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="0-PostgreSQL Installation.html">
+            
+                <a href="0-PostgreSQL Installation.html">
+            
+                    
+                    2.1 PostgreSQL安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1-PostGIS Installation.html">
+            
+                <a href="1-PostGIS Installation.html">
+            
+                    
+                    2.2 PostGIS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../8-VectorFunction/">
+            
+                <a href="../8-VectorFunction/">
+            
+                    
+                    八 矢量函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../8-VectorFunction/Accessors.html">
+            
+                <a href="../8-VectorFunction/Accessors.html">
+            
+                    
+                    8.4 元数据读写
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../8-VectorFunction/Clustering.html">
+            
+                <a href="../8-VectorFunction/Clustering.html">
+            
+                    
+                    8.15 空间聚类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../8-VectorFunction/Clustering.html">
+            
+                <a href="../8-VectorFunction/Clustering.html#ST_ClusterDBSCAN">
+            
+                    
+                    8.15.1 ST_ClusterDBSCAN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../8-VectorFunction/Clustering.html">
+            
+                <a href="../8-VectorFunction/Clustering.html#ST_ClusterIntersecting">
+            
+                    
+                    8.15.2 ST_ClusterIntersecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../8-VectorFunction/Clustering.html">
+            
+                <a href="../8-VectorFunction/Clustering.html#ST_ClusterKMeans">
+            
+                    
+                    8.15.3 ST_ClusterKMeans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../8-VectorFunction/Clustering.html">
+            
+                <a href="../8-VectorFunction/Clustering.html#ST_ClusterWithin">
+            
+                    
+                    8.15.4 ST_ClusterWithin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 PostgreSQL安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="21-postgresql&#x5B89;&#x88C5;">2.1 PostgreSQL&#x5B89;&#x88C5;</h3>
+<h4 id="211-&#x5347;&#x7EA7;gcc">2.1.1 &#x5347;&#x7EA7;gcc</h4>
+<p>&#x4ECE;&#x955C;&#x50CF;&#x4E2D;&#x4E0B;&#x8F7D;&#x8F83;&#x65B0;&#x7684;gcc&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x5E76;&#x89E3;&#x538B;&#xFF1A;</p>
+<pre class="language-"><code>[root@ ~]# wget -c http://mirror.koddos.net/gcc/releases/gcc-9.2.0/gcc-9.2.0.tar.xz
+[root@ ~]# tar xvf gcc-9.2.0.tar.xz
+</code></pre><p>&#x4E0B;&#x8F7D;&#x5E76;&#x5B89;&#x88C5;gcc&#x4F9D;&#x8D56;:</p>
+<pre class="language-"><code>[root@ ~]# cd gcc-9.2.0
+[root@ gcc-9.2.0]# ./contrib/download_prerequisites
+</code></pre><p>&#x5B89;&#x88C5;gcc&#xFF0C;&#x901A;&#x8FC7;--prefix&#x6307;&#x5B9A;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF1A;</p>
+<pre class="language-"><code>[root@ gcc-9.2.0]# ./configure --prefix=/usr/local/gcc-9.2.0 --enable-checking=release --enable-languages=c,c++ --disable-multilib 
+#&#x670D;&#x52A1;&#x5668;&#x5982;&#x679C;&#x6838;&#x6570;&#x8F83;&#x591A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5E76;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x6BD4;&#x5982;&#x6709;2&#x6838; 
+# make -j 4
+#-j&#x540E;&#x7684;&#x5E76;&#x884C;&#x6570;&#x91CF;&#x5E94;&#x7B49;&#x4E8E;&#x6838;&#x6570;&#x7684;2&#x500D;&#xFF0C;&#x4E0D;&#x8981;&#x592A;&#x591A;&#x3002;
+[root@ gcc-9.2.0]# make -j 4
+[root@ gcc-9.2.0]# make install
+</code></pre><p>&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre class="language-"><code>[root@ gcc-9.2.0]# vi /etc/profile
+#&#x5C06;gcc&#x52A0;&#x5165;path&#xFF0C;&#x6CE8;&#x610F;path&#x91CC;&#x6709;&#x5176;&#x4ED6;bin&#x4E0D;&#x8981;&#x6539;&#xFF0C;&#x5728;&#x540E;&#x9762;&#x8FFD;&#x52A0;&#xFF0C;&#x4EE5;&#x514D;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;
+export GCC_HOME=/usr/local/gcc-9.2.0
+export PATH=$GDAL_HOME/bin:$GCC_HOME/bin:$PATH
+# :wq! &#x4FDD;&#x5B58;&#x9000;&#x51FA;
+
+#&#x91CD;&#x542F;&#x751F;&#x6548;&#xFF1A;
+[root@ gcc-9.2.0]# source /etc/profile
+</code></pre><p>&#x9A8C;&#x8BC1;gcc&#x5B89;&#x88C5;&#xFF1A;</p>
+<pre class="language-"><code>[root@ ~]# gcc --version
+gcc (GCC) 9.2.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre><p>&#x79FB;&#x9664;&#x4F4E;&#x7248;&#x672C;&#x7684;yum&#x5B89;&#x88C5;&#x7684;gcc&#xFF0C;&#x5982;&#x679C;&#x5B89;&#x88C5;&#x8FC7;&#x5C06;&#x4F1A;&#x5378;&#x8F7D;&#xFF1A;</p>
+<pre class="language-"><code>[root@ ~]# yum remove gcc
+</code></pre><p>&#x66F4;&#x65B0;&#x7CFB;&#x7EDF;&#x5E93;&#x4F9D;&#x8D56;&#xFF0C;&#x907F;&#x514D;&#x7F16;&#x8BD1;&#x65F6;&#x53D1;&#x751F;glibcxx_x.x.xxx not found&#x7B49;lib&#x5305;&#x56E0;&#x7248;&#x672C;&#x5DEE;&#x5F02;&#x5BFC;&#x81F4;&#x7684;&#x9519;&#x8BEF;&#xFF1A;</p>
+<pre class="language-"><code>#&#x5148;&#x5168;&#x5C40;&#x67E5;&#x8BE2;libstdc++.so.6&#x5305;&#x6240;&#x5728;&#x4F4D;&#x7F6E;
+[root@ ~]# find / -name libstdc++.so.6
+/usr/lib64/libstdc++.so.6
+/usr/lib/libstdc++.so.6
+/usr/local/gcc-9.2.0/lib64/libstdc++.so.6
+#&#x5176;&#x4E2D;/usr/local&#x662F;&#x6211;&#x4EEC;&#x521A;&#x521A;&#x5B89;&#x88C5;&#x7684;&#xFF0C;/lib&#x4E0E;/lib64&#x6211;&#x4EEC;&#x4E0D;&#x6E05;&#x695A;&#x662F;&#x4E0D;&#x662F;&#x6B8B;&#x7559;&#xFF0C;&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x7528;&#x65B0;&#x7684;&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x5373;&#x53EF;&#x3002;
+[root@ ~]# cp /usr/local/gcc-9.2.0/lib64/libstdc++.so.6 /usr/lib
+[root@ ~]# cp /usr/local/gcc-9.2.0/lib64/libstdc++.so.6 /usr/lib64
+</code></pre><h4 id="212-&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x5B89;&#x88C5;">2.1.2 &#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x5B89;&#x88C5;</h4>
+<pre class="language-"><code>[root@ ~]#  yum install -y vim-enhanced.x86_64 gcc-java apr apr-devel openssl openssl-devel java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64 perl-Module-Install.noarch readline-devel.x86_64
+</code></pre><p>&#x4E3A;&#x4E86;&#x80FD;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x4F7F;&#x7528;uuid&#xFF0C;&#x5148;&#x8981;&#x5B89;&#x88C5;&#x4E0B;uuid&#x7684;&#x5E93;&#xFF1A;</p>
+<pre class="language-"><code># &#x4E0B;&#x8F7D;uuid-1.6.2.tar.gz&#x7136;&#x540E;&#x62F7;&#x8D1D;&#x5230;&#x5B89;&#x88C5;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x3002;&#x7531;&#x4E8E;&#x5B98;&#x65B9;&#x94FE;&#x63A5;&#x592A;&#x70C2;&#xFF0C;&#x6839;&#x672C;&#x70B9;&#x4E0D;&#x5F00;&#xFF0C;&#x5148;&#x6682;&#x65F6;&#x5728;&#x767E;&#x5EA6;&#x7F51;&#x76D8;&#x5206;&#x4EAB;&#x4E2A;&#x8D44;&#x6E90;&#xFF1A;
+[uuid-1.6.2.tar.gz](https://pan.baidu.com/s/1NSHU8WrczfGDDsxYhEcAQQ)
+
+[root@ ~]#  tar -zxvf uuid-1.6.2.tar.gz
+[root@ ~]#  cd uuid-1.6.2
+[root@ ~]#  ./configure
+[root@ ~]#  make
+[root@ ~]#  make install
+</code></pre><h4 id="213-&#x65B0;&#x5EFA;&#x7528;&#x6237;">2.1.3 &#x65B0;&#x5EFA;&#x7528;&#x6237;</h4>
+<pre class="language-"><code>[root@ ~]# useradd postgres
+</code></pre><h4 id="214-&#x4E0B;&#x8F7D;pg12&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;">2.1.4 &#x4E0B;&#x8F7D;PG12&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;</h4>
+<pre class="language-"><code>[root@ ~]# wget https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.gz
+[root@ ~]# tar -zxvf postgresql-12.1.tar.gz
+[root@ ~]# cd postgresql-12.1
+[root@ postgresql-12.1]# ./configure --prefix=/home/postgres --enable-thread-safety --with-uuid=ossp --with-libs=/usr/local/lib --with-includes=/usr/local/include
+[root@ postgresql-12.1]# make -j 4
+[root@ postgresql-12.1]# make install
+# &#x5B89;&#x88C5;contrib&#x5DE5;&#x5177;&#x5305;
+[root@ postgresql-12.1]# cd contrib
+[root@ contrib]# make
+[root@ contrib]# make install
+</code></pre><h4 id="215-&#x6743;&#x9650;&#x8BBE;&#x7F6E;">2.1.5 &#x6743;&#x9650;&#x8BBE;&#x7F6E;</h4>
+<pre class="language-"><code>#&#x628A;&#x7A0B;&#x5E8F;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x5168;&#x90E8;&#x8D4B;&#x6743;&#x7ED9;postgres&#x7528;&#x6237;
+[root@ contrib]# chown -R postgres.postgres /home/postgres/
+</code></pre><h4 id="216-&#x914D;&#x7F6E;postgres&#x7528;&#x6237;&#x73AF;&#x5883;&#x53D8;&#x91CF;">2.1.6 &#x914D;&#x7F6E;postgres&#x7528;&#x6237;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h4>
+<pre class="language-"><code>[root@ contrib]# su - postgres
+[postgres@ ~]$ vi .bashrc
+#&#x7F16;&#x8F91;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
+PGHOME=/home/postgres
+export PGHOME
+PGDATA=$PGHOME/data
+export PGDATA
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$PGHOME/bin
+export PATH
+# wq! &#x4FDD;&#x5B58;&#x9000;&#x51FA;
+
+#&#x91CD;&#x542F;&#x751F;&#x6548;
+[postgres@ ~]$ source .bashrc
+</code></pre><h4 id="217-&#x6570;&#x636E;&#x5E93;&#x521D;&#x59CB;&#x5316;&#x4E0E;&#x542F;&#x52A8;">2.1.7 &#x6570;&#x636E;&#x5E93;&#x521D;&#x59CB;&#x5316;&#x4E0E;&#x542F;&#x52A8;</h4>
+<pre class="language-"><code>[postgres@ ~]$ initdb -D $PGDATA
+[postgres@ ~]$ pg_ctl start -D $PGDATA
+#&#x767B;&#x5F55;&#x6570;&#x636E;&#x5E93;
+[postgres@ ~]$ psql
+psql (12.1)
+Type &quot;help&quot; for help.
+
+postgres=#
+</code></pre><p>&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x5B89;&#x88C5;&#xFF0C;&#x4F46;&#x53EA;&#x80FD;&#x672C;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;&#x6027;&#x80FD;&#x53C2;&#x6570;&#x914D;&#x7F6E;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x3002;&#x6709;&#x65F6;&#x5019;&#x5E0C;&#x671B;&#x5176;&#x4ED6;&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x80FD;&#x8FDE;&#x63A5;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;$PGDATA&#x4E2D;&#x7684;pg_hba.conf&#x4E0E;postgresql.conf&#x4E2D;&#x76F8;&#x5173;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x8BE6;&#x7EC6;&#x67E5;&#x770B;&#x5176;&#x4ED6;PG&#x76F8;&#x5173;&#x7684;&#x535A;&#x5BA2;&#x548C;&#x4E66;&#x7C4D;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 二 安装">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1-PostGIS Installation.html" class="navigation navigation-next " aria-label="Next page: 2.2 PostGIS安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 PostgreSQL安装","level":"1.3.1","depth":2,"next":{"title":"2.2 PostGIS安装","level":"1.3.2","depth":2,"path":"2-Installation/1-PostGIS Installation.md","ref":"2-Installation/1-PostGIS Installation.md","articles":[]},"previous":{"title":"二 安装","level":"1.3","depth":1,"path":"2-Installation/README.md","ref":"2-Installation/README.md","articles":[{"title":"2.1 PostgreSQL安装","level":"1.3.1","depth":2,"path":"2-Installation/0-PostgreSQL Installation.md","ref":"2-Installation/0-PostgreSQL Installation.md","articles":[]},{"title":"2.2 PostGIS安装","level":"1.3.2","depth":2,"path":"2-Installation/1-PostGIS Installation.md","ref":"2-Installation/1-PostGIS Installation.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","pageview-count","prism","-highlight","custom-favicon","sharing-plus","-sharing","emphasize","-lunr","-search","search-pro","graph","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"livereload":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"graph":{},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":"../gitbook/images/favicon.ico","pageview-count":{},"custom-favicon":{},"sharing":{"douban":false,"facebook":false,"google":false,"line":false,"qq":true,"qzone":true,"weibo":true,"whatsapp":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"xxx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PostGIS中文开发指南","gitbook":"*","description":"记录PostGIS使用入门，进阶，提高，附带API全解析"},"file":{"path":"2-Installation/0-PostgreSQL Installation.md","mtime":"2020-01-17T04:26:09.208Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-17T06:40:26.506Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
