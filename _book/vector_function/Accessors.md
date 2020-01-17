@@ -1,8 +1,8 @@
-### 8.4 元数据读写
+## 8.4 元数据读写
 
 **以下函数返回图形类型和图形类型对应的坐标和拓扑维度。**
 
-#### <span id="GeometryType">GeometryType</span>
+### <span id="GeometryType">GeometryType</span>
 
 作用：返回图形类型字符串，字符串形式是：'POINT','LINESTRING','POLYGON','MULTIPOINT','MULTILINESTRING','MULTIPOLYGON'等等。
 ```
@@ -18,7 +18,7 @@ SELECT GeometryType(ST_GeomFromText('LineString(118 32,119 33)'));
     LINESTRING
 ```
 
-#### <span id="ST_GeometryType">ST_GeometryType</span>
+### <span id="ST_GeometryType">ST_GeometryType</span>
 作用：返回图形类型SQL_MM字符串，字符串形式是：'ST_Point','ST_Linestring','ST_Polygon','ST_MultiPoint','ST_MultiLinestring','ST_MultiPolygon'等等。
 ```
 SELECT ST_GeometryType(ST_GeomFromText('Point(118 32)'));
@@ -33,7 +33,7 @@ SELECT ST_GeometryType(ST_GeomFromText('LineString(118 32,119 33)'));
     ST_Linestring
 ```
 
-#### <span id="ST_CoordDim">ST_CoordDim/ST_NDims</span>
+### <span id="ST_CoordDim">ST_CoordDim/ST_NDims</span>
 
 作用：两个函数一模一样，都是返回图形坐标维度，如二维返回2，xyz,xym都返回3，xyzm返回4。
 
@@ -68,7 +68,7 @@ SELECT ST_CoordDim(ST_GeomFromText('PointZM(1 2 2 2'));
 -------------
     4
 ```
-#### <span id='ST_Dimension'>ST_Dimension</span>
+### <span id='ST_Dimension'>ST_Dimension</span>
 作用：返回图形的拓扑维度，拓扑维度只区分大类，如POINT形式，子形式包括MULTIPOINT,POINTZ,POINTM,POINTZM，统统都返回0，以此类推。
 几何拓扑形式 | 维度
 ---|---
@@ -128,7 +128,7 @@ ST_Dimension
     2
 ```
 
-####  <span id='ST_Zmflag'>ST_Zmflag</span>
+###  <span id='ST_Zmflag'>ST_Zmflag</span>
 作用：该函数主要用于测试一个图形的坐标究竟是带m还是带z值，根据其不同转态返回能提现zm状态的维度编码。
 zm坐标形式 | 维度
 ---|---
@@ -176,7 +176,7 @@ ST_CoordDim
 
 
 **以下函数为测试函数，判别geometry某个属性是否具备某个状态**。
-#### <span id='ST_HasArc'>ST_HasArc</span>
+### <span id='ST_HasArc'>ST_HasArc</span>
 
 作用：该函数主要用于测试一个图形是否包含圆弧。判断依据比较勉强，仅仅判断图形或者图形集合中的子图形是不是包含圆弧标志的字符串。
 
@@ -187,7 +187,7 @@ st_hasarc
 --------
   true
 ```
-#### <span id='ST_IsPolygonCCW '>ST_IsPolygonCCW </span>
+### <span id='ST_IsPolygonCCW'>ST_IsPolygonCCW</span>
 
 
 
@@ -207,7 +207,7 @@ ST_IsPolygonCCW
 -------------------
     false
 ```
-#### <span id='ST_IsPolygonCW'>ST_IsPolygonCW</span>
+### <span id='ST_IsPolygonCW'>ST_IsPolygonCW</span>
 作用：测试多边形是否具有顺时针方向的外环和逆时针方向的内环。
 
 ![](../images/Accessors/ST_IsPolygonCW.png)
@@ -217,7 +217,7 @@ ST_IsPolygonCW
 -------------------
     true
 ```
-#### <span id='ST_IsClosed'>ST_IsClosed</span>
+### <span id='ST_IsClosed'>ST_IsClosed</span>
 作用：判别一个线是否闭合。Polygon一定是闭合的否则构造会出错，因此，该函数常用就是判别线。所谓闭合，就是**起点=终点** ，即首尾相连。
 主要使用场景：
 ```
@@ -277,7 +277,7 @@ st_isclosed
     4 该函数其实仅仅用于判定LineString是否闭合为主要目的。
 
 
-#### <span id='ST_IsCollection'>ST_IsCollection</span>
+### <span id='ST_IsCollection'>ST_IsCollection</span>
 作用：判定一个图形是否是集合类型，集合类型列表如下：
 
     • GEOMETRYCOLLECTION
@@ -297,7 +297,7 @@ st_iscollection
 -------------
     true    
 ```
-#### <span id='ST_IsEmpty'>ST_IsEmpty</span>
+### <span id='ST_IsEmpty'>ST_IsEmpty</span>
 作用：判定一个图形是否为空。
 ```
 SELECT ST_IsEmpty(ST_GeomFromText('POLYGON EMPTY'));
@@ -311,7 +311,7 @@ st_isempty
  false
 ```
 
-#### <span id='ST_IsRing'>ST_IsRing</span>
+### <span id='ST_IsRing'>ST_IsRing</span>
 作用：判定是否为“环”，图形中的换“环”其实是闭合的单线，比如Polygon就是一个个环组成的图形。对于“环”的定义应满足如下两点：
     
     1 闭合的线，则ST_IsClosed(geom)=true。
@@ -338,7 +338,7 @@ false     |  true       |  false
 ```
 **结论：由“环”定义可知，只有当则ST_IsClosed与则ST_IsSimple两个函数都返回true，ST_IsRing(geom)才会返回true。**
 
-#### <span id='ST_IsSimple'>ST_IsSimple</span>
+### <span id='ST_IsSimple'>ST_IsSimple</span>
 作用：判定一个图形是否自相交或者自相切。
 示意图见ST_IsRing中示意图。
 ```
@@ -357,7 +357,7 @@ st_issimple
 
 
 
-#### <span id='ST_Boundary'>ST_Boundary</span>
+### <span id='ST_Boundary'>ST_Boundary</span>
 作用：返回图形边界，抽象，用例子说明。
 
 1 对于点而言，图形边界都是empty：
@@ -421,7 +421,7 @@ select ST_AsText(ST_Boundary(
 MULTILINESTRING((0 0,1 0,1 1,0 1,0 0),(2 2,2 3,3 3,3 2,2 2))	
 ```
 
-#### <span id='ST_Envelope'>ST_Envelope</span>
+### <span id='ST_Envelope'>ST_Envelope</span>
 作用：返回一个图形的外接矩形。点的外接矩形是Point，线面的外接矩形是个长方形Polygon，**xyz的线面外接矩形仍然是xy维度里的长方形，而非官方手册说的长方体**。
 ```
 --点
@@ -456,12 +456,12 @@ POLYGON((0 0,0 1,1 1,1 0,0 0))
 ```
 **说明：xyz的线面返回还是二维的xy面，z轴被丢失了。**
 
-##### ST_Envelope与Box2D
+#### ST_Envelope与Box2D
 相同点：ST_Envelope与Box2D都是获取输入图形的外接矩形。
 
 不同点：ST_Envelope返回的是个geometry对象，如'Polygon((minx miny,minx maxy,maxx maxy,maxx miny,minx miny))::geometry'；Box2D返回的是box2d对象，如BOX(minx,miny,maxx,maxy)。
 
-#### <span id='ST_BoundingDiagonal'>ST_BoundingDiagonal</span>
+### <span id='ST_BoundingDiagonal'>ST_BoundingDiagonal</span>
 作用：返回一个图形边界框构成的对角线。该函数会保留所有的srid和zm维度。
 
 函数定义：ST_BoundingDiagonal(geometry geom, boolean fits=false)
@@ -485,7 +485,7 @@ LINESTRING Z (0 0 0,1 1 1)
 
 
 
-#### <span id='ST_X'>ST_X,ST_Y,ST_Z,ST_M</span>
+### <span id='ST_X'>ST_X,ST_Y,ST_Z,ST_M</span>
 作用：ST_X,ST_Y,ST_Z,ST_M四个函数分别返回Point的x，y，z，m值，**入参必须是Point**。
 ```
 SELECT ST_X(geom), ST_Y(geom), ST_Z(geom),ST_M(geom)
@@ -494,7 +494,7 @@ st_x | st_y | st_z | st_m
 --------------------------
  1   |  2   |  3   |   4
 ```
-#### <span id='ST_StartPoint'>ST_StartPoint,ST_EndPoint</span>
+### <span id='ST_StartPoint'>ST_StartPoint,ST_EndPoint</span>
 作用：ST_StartPoint,ST_EndPoint分别返回LineString或CircularLineString的起点，终点，**入参必须是LineString与CircularLineString，如果是其他图形类型，返回null**。
 ```
 SELECT ST_AsText(ST_StartPoint(geom)) startpt, ST_AsText(ST_EndPoint(geom)) endpt
@@ -510,7 +510,7 @@ is_null
  true
 ```
 
-#### <span id='ST_NumGeometries'>ST_NumGeometries,ST_GeometryN</span>
+### <span id='ST_NumGeometries'>ST_NumGeometries,ST_GeometryN</span>
 
 作用：ST_NumGeometries返回一个图形集合中子图形的数量，ST_GeometryN返回图形集合中序号为n的子图形。两者关系类似与其他语言中获取数组的长度，根据索引返回数组中指定子项。
 
@@ -549,9 +549,9 @@ SELECT ST_AsText(ST_GeometryN(ST_GeomFromEWKT('MultiPOINT(0 0,1 1,2 2)'),2));
      POINT(1 1)
 ```
 
-#### 
+### 
 
-#### <span id='ST_NRings'>ST_NRings,ST_ExteriorRing,ST_NumInteriorRings,ST_NumInteriorRing,ST_InteriorRingN</span>
+### <span id='ST_NRings'>ST_NRings,ST_ExteriorRing,ST_NumInteriorRings,ST_NumInteriorRing,ST_InteriorRingN</span>
 
 函数名称 | 作用
 ---|---
@@ -619,7 +619,7 @@ ST_NumInteriorRings
 
 **结论：除ST_NRings支持MultiPolygon外，原则上这些函数都认为是只处理Polygon类型比较好，实际也的确只是用来处理Polygon的。**
 
-#### <span id='ST_NumPatches'>ST_NumPatches,ST_PatchN</span>
+### <span id='ST_NumPatches'>ST_NumPatches,ST_PatchN</span>
 
 函数名称 | 作用
 ---|---
@@ -654,7 +654,7 @@ POLYGON((0 0 0,0 1 0,1 1 0,1 0 0,0 0 0))
 
 --其实使用ST_GeometryN可以替代ST_PatchN，结果一样。
 ```
-#### <span id='ST_NPoints'>ST_NPoints,ST_NumPoints,ST_PointN,ST_Points</span>
+### <span id='ST_NPoints'>ST_NPoints,ST_NumPoints,ST_PointN,ST_Points</span>
 函数名称 | 作用
 ---|---
 ST_NPoints | 返回geometry上Point点数量，不仅仅针对LineString。
@@ -710,7 +710,7 @@ MULTIPOINT(1 1,1 2,2 2,2 1,1 1)
 ```
 **结论：ST_NPoints和ST_NumPoints相同点是都获取图形的Point点数量；不同点是ST_NumPoints仅仅针对LineString或CircularString，而ST_NPoints还支持更多其他类型的图形。**
 
-#### <span id='ST_MemSize'>ST_MemSize</span>
+### <span id='ST_MemSize'>ST_MemSize</span>
 作用：返回一个geom占用内存空间大小。
 
 说明：ST_MemSize是PostgreSQL原生的pg_column_size, pg_size_pretty, pg_relation_size, pg_total_relatio_size等获取表或字段物理大小字段的补充，原因是原生函数不能准确表达geom的大小。
@@ -725,7 +725,7 @@ ST_MemSize
 ----------
     80
 ```
-#### <span id='ST_Summary'>ST_Summary</span>
+### <span id='ST_Summary'>ST_Summary</span>
 作用：以一个标准化的字符串描述一个图形的概要信息。
 
 关键字：
@@ -754,7 +754,7 @@ select ST_Summary(ST_GeogFromText('POLYGON((0 0, 1 1, 1 2, 1 1, 0 0))')) geog;
     ring 0 has 5 points
 ```
 **注意：pg中数组都是从1开始计数的，在ST_InteriorRingN中n=1就是第一个外环。但是在ST_Summary返回的文本串里，第一个ring序号从0开始。**
-#### <span id='ST_Dump'>ST_Dump,ST_DumpPoints,ST_DumpRings</span>
+### <span id='ST_Dump'>ST_Dump,ST_DumpPoints,ST_DumpRings</span>
 这三个函数返回值都是geometry_dump类型（**缺少类型描述**）的数据集。
 函数名称 | 作用
 ---|---

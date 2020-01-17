@@ -1,23 +1,23 @@
-### <span id='ST_ClusterDBSCAN'>ST_ClusterDBSCAN</span>
-#### 方法功能描述
+## <span id='ST_ClusterDBSCAN'>ST_ClusterDBSCAN</span>
+### 方法功能描述
 窗口函数，基于DBSCAN算法，返回每一个输入的geometry所对应的聚类id。
-#### 函数定义
+### 函数定义
 ```
 integer ST_ClusterDBSCAN(geometry winset geom, float8 eps, integer minpoints);
 ```
 入参：
 
     geom：输入的2d图形。
-
+    
     eps：聚类距离，当两个图形之间距离小于聚类距离，他们被归为一类。
-
+    
     minpoints：规定“簇”中至少包含的图形数量。
 
 返回值：对应的聚类id号，如果输入的geom不属于任何一个“簇”，将返回null。
     
 
 
-#### 应用示例
+### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterDBSCAN方法，根据建筑之间小于20米，且每一簇中至少包含2个图形：
 
 ![](../images/Clustering/ST_ClusterDBSCAN.png)
@@ -61,10 +61,10 @@ gid |     name     | cid
 cid是每个geom所对应建筑的聚类id号，灰色建筑是与其他图形之间距离大于20米，所以没有归入任何一个“簇”，返回的聚类id是null(cid null的记录都是灰色的)。
 
 
-### <span id='ST_ClusterIntersecting'>ST_ClusterIntersecting</span>
-#### 方法功能描述
+## <span id='ST_ClusterIntersecting'>ST_ClusterIntersecting</span>
+### 方法功能描述
 聚合函数，对于输入的一个geometry集合，集合中图形之间根据“空间相交”进行聚类，最后把聚类结果聚合成一个geometry数组，数组里的每一项代表“一类”。
-#### 函数定义
+### 函数定义
 ```
 geometry[] ST_ClusterIntersecting(geometry set g);
 ```
@@ -76,7 +76,7 @@ geometry[] ST_ClusterIntersecting(geometry set g);
     
 
 
-#### 应用示例
+### 应用示例
 
 示例数据示意图如下：
 
@@ -121,7 +121,7 @@ select st_astext(unnest(ST_ClusterIntersecting(geom))) from building2;
 (3 行记录)
 ```
 
-#### 使用问题
+### 使用问题
 ST_ClusterIntersecting是个聚合函数，聚类的结果最后是一个geometry[]类型，没有任何属性字段，有时候我们其实聚类后，想要获取聚类图形结果与属性关系，比如我们没办法从ST_ClusterIntersecting函数的结果中输出对应的gid或者name等其他更多信息。
 
 解决方法目前只能通过图形之间的关系去解决。
@@ -184,10 +184,10 @@ gid |  cid
 
 注意：关于join和空间查询性能不是本节主要阐述重点，本节提出的方案是理论可行方案，但是基于实际项目和数据，存在优化空间，需要根据其他postgis优化方案进行处理。
 
-### <span id='ST_ClusterKMeans'>ST_ClusterKMeans</span>
-#### 方法功能描述
+## <span id='ST_ClusterKMeans'>ST_ClusterKMeans</span>
+### 方法功能描述
 窗口函数，基于K-means算法，返回每一个输入的geometry所对应的聚类id。
-#### 函数定义
+### 函数定义
 ```
 integer ST_ClusterKMeans(geometry winset geom, integer number_of_clusters);
 ```
@@ -195,12 +195,12 @@ integer ST_ClusterKMeans(geometry winset geom, integer number_of_clusters);
 入参：
 
     geom：输入的2d图形。
-
+    
     number_of_clusters：均值中心聚类指定“簇”的数量。
 
 返回值：对应的聚类id号，如果输入的geom不属于任何一个“簇”，将返回null
 
-#### 应用示例
+### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterKMeans空间聚合，指定分类数量为3，返回每个记录的id和对应的聚类id（cid）号：
 
 ![](../images/Clustering/ST_ClusterKMeans1.png)
@@ -218,11 +218,11 @@ SELECT gid,ST_ClusterKMeans(geom,4) over () AS cid,geom FROM buildings;
 
 
 
-### <span id='ST_ClusterWithin'>ST_ClusterWithin</span>
-#### 方法功能描述
+## <span id='ST_ClusterWithin'>ST_ClusterWithin</span>
+### 方法功能描述
 聚合函数，对输入的图形集合，如果图形之间的距离在指定的距离内，则归并为一类。与ST_ClusterIntersecting类似，只是ST_ClusterIntersecting指定是图形必须相交，可以认为距离是0，而ST_ClusterWithin不需要图形之间相交关系，而是说即使图形不相交，但是当图形的距离在所规定的容差内，就可认为他们是一类。
 
-#### 函数定义
+### 函数定义
 ```
 geometry[] a(geometry set g, float8 distance);
 ```
@@ -234,7 +234,7 @@ geometry[] a(geometry set g, float8 distance);
 返回值：所有的图形完成聚类，每一类图形都是一个GEOMETRYCOLLECTION（图形集合）对象，所有类都塞入一个geometry数组里并返回结果。
 
 
-#### 应用示例
+### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterWithin空间聚类，指定聚类条件是图形间的距离小于50米：
 
 ![](../images/Clustering/ST_ClusterWithin1.png)
@@ -254,7 +254,7 @@ select unnest(ST_ClusterWithin(geom, 0.0003)) geom from buildings;
 
 ```
 
-#### 使用问题
+### 使用问题
 ST_ClusterWithin是个聚合函数，聚类的结果最后是一个geometry[]类型，没有任何属性字段，有时候我们其实聚类后，想要获取聚类图形结果与属性关系，比如我们没办法从ST_ClusterWithin函数的结果中输出对应的gid或者name等其他更多信息。
 
 解决方法目前只能通过图形之间的关系去解决。
@@ -310,3 +310,4 @@ gid |  cid
 这样，通过gid能关联得到每个记录对应的其他更多字段信息，通过cid知道哪些记录是一组的等其他操作。
 
 注意：关于join和空间查询性能不是本节主要阐述重点，本节提出的方案是理论可行方案，但是基于实际项目和数据，存在优化空间，需要根据其他postgis优化方案进行处理。
+

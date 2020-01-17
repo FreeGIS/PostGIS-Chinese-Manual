@@ -8,7 +8,6 @@
 		"prism", 
 		"-highlight",
 		"custom-favicon",
-		"sharing-plus",
 		"-sharing",
 		"emphasize",
 		"-lunr", 
@@ -22,17 +21,6 @@
 				"prismjs/themes/prism-okaidia.css"
 			]
 		},
-		"favicon": "../gitbook/images/favicon.ico",
-		"sharing": {
-			"douban": false,
-			"facebook": false,
-			"google": false,
-			"line": false,
-			"qq": true,
-			"qzone": true,
-			"weibo": true,
-			"whatsapp": false
-		}
-
+		"favicon": "../gitbook/images/favicon.ico"
 	}
 }

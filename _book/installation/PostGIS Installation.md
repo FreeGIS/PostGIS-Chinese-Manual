@@ -1,7 +1,7 @@
-### 2.2 PostGIS安装
+## 2.2 PostGIS安装
 本教程安装PostGIS 3.0,3.0依赖的库有geos,proj,gdal,libxml,json-c,protobuf，如何要支持三维需安装sfcgal，如果要做路网分析需安装pgrouting。
-#### 2.2.1 安装依赖
-##### 2.2.1.1 geos
+### 2.2.1 安装依赖
+### 2.2.1.1 geos
 ```
 [root@ ~]# wget https://download.osgeo.org/geos/geos-3.8.0.tar.bz2
 [root@ ~]# tar -jxvf geos-3.8.0.tar.bz2     
@@ -11,7 +11,7 @@
 [root@ geos-3.8.0]# make -j 4
 [root@ geos-3.8.0]# make install   
 ```
-##### 2.2.1.2 proj
+#### 2.2.1.2 proj
 ```
 [root@ ~]# wget http://download.osgeo.org/proj/proj-6.2.1.tar.gz    
 [root@ ~]# tar -zxvf proj-6.2.1.tar.gz    
@@ -21,7 +21,7 @@
 [root@ proj-6.2.1]# make -j 4    
 [root@ proj-6.2.1]# make install    
 ```
-##### 2.2.1.3 gdal
+#### 2.2.1.3 gdal
 ```
 [root@ ~]# wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz
 [root@ ~]# tar -zxvf gdal-3.0.2.tar.gz 
@@ -31,7 +31,7 @@
 [root@  gdal-3.0.2]# make -j 4
 [root@  gdal-3.0.2]# make install   
 ```
-##### 2.2.1.4 jsonc,libxml
+#### 2.2.1.4 jsonc,libxml
 ```
 [root@ ~]# wget https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz
 [root@ ~]# tar -zxvf json-c-0.13.1-20180305.tar.gz    
@@ -48,7 +48,7 @@
 [root@ libxml2-2.9.7]# make install   
 
 ```
-##### 2.2.1.5 protobuf,protobuf-c
+#### 2.2.1.5 protobuf,protobuf-c
 ```
 [root@ ~]#  wget https://github.com/protocolbuffers/protobuf/archive/v3.10.1.tar.gz
 [root@ ~]# tar -zxvf protobuf-3.10.1.tar.gz    
@@ -85,7 +85,7 @@ export PATH=$GCC_HOME/bin:$PROTOBUF_HOME/bin:$PROTOBUFC_HOME/bin:$PATH
 [root@ ~]# source /etc/profile
 ```
 
-##### 2.2.1.6 sfcgal (三维场景，可选择安装)
+#### 2.2.1.6 sfcgal (三维场景，可选择安装)
 sfcgal需要cmkae编译，需先安装下cmake：
 ```
 [root@ ~]# wget https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
@@ -128,8 +128,8 @@ sfcgal依赖boost,cgal，需要提前编译，编译默认目录，避免编译s
 ```
 pgrouting可以单独安装，在之后章目里会单独介绍。
 
-#### 2.2.2 PostGIS安装
-##### 2.2.2.1 配置ld.so.conf
+### 2.2.2 PostGIS安装
+#### 2.2.2.1 配置ld.so.conf
 ```
 [root@ ~]# vim /etc/ld.so.conf
 #编辑内容如下
@@ -147,7 +147,7 @@ include ld.so.conf.d/*.conf
 #保存配置，重启生效
 [root@ ~]# ldconfig -v 
 ```
-##### 2.2.2.2 安装postgis
+#### 2.2.2.2 安装postgis
 ```
 [root@ ~]# wget http://download.osgeo.org/postgis/source/postgis-3.0.0.tar.gz    
 [root@ ~]# tar -zxvf postgis-3.0.0.tar.gz    
@@ -166,7 +166,7 @@ include ld.so.conf.d/*.conf
 yum instlal sqlite-devel
 ```
 
-##### 2.2.2.3 验证安装
+#### 2.2.2.3 验证安装
 ```
 [root@ ~]# su - postgres
 [postgres@ ~]$ psql

@@ -1,5 +1,5 @@
-### 2.1 PostgreSQL安装
-#### 2.1.1 升级gcc
+## 2.1 PostgreSQL安装
+### 2.1.1 升级gcc
 
 从镜像中下载较新的gcc压缩文件并解压：
 ```
@@ -54,7 +54,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [root@ ~]# cp /usr/local/gcc-9.2.0/lib64/libstdc++.so.6 /usr/lib
 [root@ ~]# cp /usr/local/gcc-9.2.0/lib64/libstdc++.so.6 /usr/lib64
 ```
-#### 2.1.2 其他依赖安装
+### 2.1.2 其他依赖安装
 ```
 [root@ ~]#  yum install -y vim-enhanced.x86_64 gcc-java apr apr-devel openssl openssl-devel java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64 perl-Module-Install.noarch readline-devel.x86_64
 ```
@@ -70,11 +70,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [root@ ~]#  make install
 ```
 
-#### 2.1.3 新建用户
+### 2.1.3 新建用户
 ```
 [root@ ~]# useradd postgres
 ```
-#### 2.1.4 下载PG12源码编译安装
+### 2.1.4 下载PG12源码编译安装
 ```
 [root@ ~]# wget https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.gz
 [root@ ~]# tar -zxvf postgresql-12.1.tar.gz
@@ -87,12 +87,12 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 [root@ contrib]# make
 [root@ contrib]# make install
 ```
-#### 2.1.5 权限设置
+### 2.1.5 权限设置
 ```
 #把程序安装目录全部赋权给postgres用户
 [root@ contrib]# chown -R postgres.postgres /home/postgres/
 ```
-#### 2.1.6 配置postgres用户环境变量
+### 2.1.6 配置postgres用户环境变量
 ```
 [root@ contrib]# su - postgres
 [postgres@ ~]$ vi .bashrc
@@ -109,7 +109,7 @@ export PATH
 [postgres@ ~]$ source .bashrc
 ```
 
-#### 2.1.7 数据库初始化与启动
+### 2.1.7 数据库初始化与启动
 ```
 [postgres@ ~]$ initdb -D $PGDATA
 [postgres@ ~]$ pg_ctl start -D $PGDATA
