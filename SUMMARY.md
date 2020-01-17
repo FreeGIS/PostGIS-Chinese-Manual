@@ -1,10 +1,10 @@
 
 - [一 简介](1-Getting Started/README.md)
     - [Test](1-Getting Started/1-TEST.md)
-- [二 安装](installation/README.md)
+- [二 安装](installation/PostgreSQL Installation.md)
 	- [2.1 PostgreSQL安装](installation/PostgreSQL Installation.md)
 	- [2.2 PostGIS安装](installation/PostGIS Installation.md)
-- [八 矢量函数](vector_function/README.md)
+- [八 矢量函数](vector_function/Accessors.md)
 	- [8.4 元数据读写](vector_function/Accessors.md)
 		- [GeometryType](vector_function/Accessors.md#GeometryType)
 		- [ST_GeometryType](vector_function/Accessors.md#ST_GeometryType)
