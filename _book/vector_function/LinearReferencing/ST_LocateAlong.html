@@ -1,0 +1,1026 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ST_LocateAlong · PostGIS中文开发指南</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="xxx">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ST_LocateBetween.html" />
+    
+    
+    <link rel="prev" href="ST_LineSubstring.html" />
+    
+
+    <script src="../../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../1-Getting Started/README.md">
+            
+                <span>
+            
+                    
+                    一 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../1-Getting Started/1-TEST.md">
+            
+                <span>
+            
+                    
+                    Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../installation/PostgreSQL Installation.html">
+            
+                <a href="../../installation/PostgreSQL Installation.html">
+            
+                    
+                    二 安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../installation/PostgreSQL Installation.html">
+            
+                <a href="../../installation/PostgreSQL Installation.html">
+            
+                    
+                    2.1 PostgreSQL安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../installation/PostGIS Installation.html">
+            
+                <a href="../../installation/PostGIS Installation.html">
+            
+                    
+                    2.2 PostGIS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html">
+            
+                    
+                    八 矢量函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html">
+            
+                    
+                    8.4 元数据读写
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#GeometryType">
+            
+                    
+                    GeometryType
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_GeometryType">
+            
+                    
+                    ST_GeometryType
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_CoordDim">
+            
+                    
+                    ST_CoordDim与ST_NDims
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Dimension">
+            
+                    
+                    ST_Dimension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Zmflag">
+            
+                    
+                    ST_Zmflag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_HasArc">
+            
+                    
+                    ST_HasArc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsPolygonCCW">
+            
+                    
+                    ST_IsPolygonCCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsPolygonCW">
+            
+                    
+                    ST_IsPolygonCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsClosed">
+            
+                    
+                    ST_IsClosed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsCollection">
+            
+                    
+                    ST_IsCollection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsEmpty">
+            
+                    
+                    ST_IsEmpty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsRing">
+            
+                    
+                    ST_IsRing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.13" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_IsSimple">
+            
+                    
+                    ST_IsSimple
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.14" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Boundary">
+            
+                    
+                    ST_Boundary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.15" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Envelope">
+            
+                    
+                    ST_Envelope
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.16" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_BoundingDiagonal">
+            
+                    
+                    ST_BoundingDiagonal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.17" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_X">
+            
+                    
+                    ST_X,ST_Y,ST_Z,ST_M
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.18" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_StartPoint">
+            
+                    
+                    ST_StartPoint,ST_EndPoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.19" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_NumGeometries">
+            
+                    
+                    ST_NumGeometries,ST_GeometryN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.20" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_NRings">
+            
+                    
+                    ST_NRings,ST_ExteriorRing,ST_NumInteriorRings,ST_NumInteriorRing,ST_InteriorRingN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.21" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_NumPatches">
+            
+                    
+                    ST_NumPatches,ST_PatchN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.22" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_NPoints">
+            
+                    
+                    ST_NPoints,ST_NumPoints,ST_PointN,ST_Points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.23" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_MemSize">
+            
+                    
+                    ST_MemSize
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.24" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Summary">
+            
+                    
+                    ST_Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.25" data-path="../Accessors.html">
+            
+                <a href="../Accessors.html#ST_Dump">
+            
+                    
+                    ST_Dump,ST_DumpPoints,ST_DumpRings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Clustering.html">
+            
+                <a href="../Clustering.html">
+            
+                    
+                    8.15 空间聚类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../Clustering.html">
+            
+                <a href="../Clustering.html#ST_ClusterDBSCAN">
+            
+                    
+                    8.15.1 ST_ClusterDBSCAN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../Clustering.html">
+            
+                <a href="../Clustering.html#ST_ClusterIntersecting">
+            
+                    
+                    8.15.2 ST_ClusterIntersecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../Clustering.html">
+            
+                <a href="../Clustering.html#ST_ClusterKMeans">
+            
+                    
+                    8.15.3 ST_ClusterKMeans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../Clustering.html">
+            
+                <a href="../Clustering.html#ST_ClusterWithin">
+            
+                    
+                    8.15.4 ST_ClusterWithin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="ST_LineInterpolatePoint.html">
+            
+                <a href="ST_LineInterpolatePoint.html">
+            
+                    
+                    8.16 线性参考
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="ST_LineInterpolatePoint.html">
+            
+                <a href="ST_LineInterpolatePoint.html#ST_LineInterpolatePoint">
+            
+                    
+                    ST_LineInterpolatePoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="ST_LineInterpolatePoint.html">
+            
+                <a href="ST_LineInterpolatePoint.html#ST_3dLineInterpolatePoint">
+            
+                    
+                    ST_LineInterpolatePoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="ST_LineInterpolatePoint.html">
+            
+                <a href="ST_LineInterpolatePoint.html#ST_LineInterpolatePoints">
+            
+                    
+                    ST_LineInterpolatePoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="ST_LineLocatePoint.html">
+            
+                <a href="ST_LineLocatePoint.html">
+            
+                    
+                    ST_LineLocatePoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="ST_LineSubstring.html">
+            
+                <a href="ST_LineSubstring.html">
+            
+                    
+                    ST_LineSubstring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.6" data-path="ST_LocateAlong.html">
+            
+                <a href="ST_LocateAlong.html">
+            
+                    
+                    ST_LocateAlong
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="ST_LocateBetween.html">
+            
+                <a href="ST_LocateBetween.html">
+            
+                    
+                    ST_LocateBetween
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="ST_LocateBetweenElevations.html">
+            
+                <a href="ST_LocateBetweenElevations.html">
+            
+                    
+                    ST_LocateBetweenElevations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" data-path="ST_InterpolatePoint.html">
+            
+                <a href="ST_InterpolatePoint.html">
+            
+                    
+                    ST_InterpolatePoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" data-path="ST_AddMeasure.html">
+            
+                <a href="ST_AddMeasure.html">
+            
+                    
+                    ST_AddMeasure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.11" data-path="examples.html">
+            
+                <a href="examples.html">
+            
+                    
+                    综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ST_LocateAlong</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="stlocatealong">ST_LocateAlong</h2>
+<h3 id="&#x65B9;&#x6CD5;&#x529F;&#x80FD;&#x63CF;&#x8FF0;">&#x65B9;&#x6CD5;&#x529F;&#x80FD;&#x63CF;&#x8FF0;</h3>
+<p>&#x5DF2;&#x77E5;&#x4E00;&#x4E2A;&#x975E;&#x9762;&#x7684;&#x5E26;M&#x503C;&#x7684;&#x56FE;&#x5F62;&#xFF0C;&#x8F93;&#x5165;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;M&#x6D4B;&#x91CF;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x8BE5;M&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x96C6;&#x5408;&#x5F62;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x56FE;&#x5F62;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE;&#x56FE;&#x5F62;&#x90FD;&#x662F;MULTIPOINTM&#x7C7B;&#x578B;&#x3002;</p>
+<h3 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;">&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h3>
+<ol>
+<li>&#x4E0D;&#x8F93;&#x5165;&#x504F;&#x79FB;&#x91CF;&#xFF1A;</li>
+</ol>
+<pre class="language-"><code>geometry ST_LocateAlong(geometry ageom_with_measure, float8 a_measure);
+</code></pre><ol>
+<li>&#x8F93;&#x5165;&#x504F;&#x79FB;&#x91CF;&#xFF1A;</li>
+</ol>
+<pre class="language-"><code>geometry ST_LocateAlong(geometry ageom_with_measure, float8 a_measure, float8 offset);
+</code></pre><p>&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<p>ageom_with_measure&#xFF1A;&#x5FC5;&#x987B;&#x662F;POINTM&#xFF0C;MULTIPOINTM&#xFF0C;LINESTRINGM&#xFF0C;MULTILINESTRINGM&#x7C7B;&#x578B;&#x4E4B;&#x4E00;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x9762;&#x6570;&#x636E;&#x3002;POINTM&#x53EA;&#x6709;&#x5355;&#x4E2A;&#x70B9;&#x5176;&#x5B9E;&#x6CA1;&#x5565;&#x610F;&#x4E49;&#xFF0C;&#x5B9E;&#x9645;&#x53EF;&#x7528;&#x7C7B;&#x578B;&#x5C31;MULTIPOINTM&#xFF0C;LINESTRINGM&#xFF0C;MULTILINESTRINGM&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x5B9E;&#x7528;&#x7C7B;&#x578B;&#x901A;&#x5E38;&#x5C31;LINESTRINGM&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x3002;</p>
+<p>a_measure&#xFF1A;&#x6D4B;&#x91CF;&#x503C;&#x6570;&#x503C;&#x3002;</p>
+<p>offset&#xFF1A;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x610F;&#x601D;&#x662F;&#x751F;&#x6210;&#x540E;&#x7684;&#x56FE;&#x5F62;&#x76F8;&#x5BF9;&#x4E8E;&#x539F;&#x6765;&#x56FE;&#x5F62;&#x8FDB;&#x884C;&#x504F;&#x79FB;&#xFF0C;&#x6B63;&#x503C;&#x662F;&#x4EE3;&#x8868;&#x751F;&#x6210;&#x540E;&#x7684;&#x56FE;&#x5F62;&#x76F8;&#x5F53;&#x4E8E;&#x539F;&#x6765;&#x56FE;&#x5F62;&#x5DE6;&#x504F;&#x79FB;&#xFF0C;&#x8D1F;&#x503C;&#x662F;&#x76F8;&#x5F53;&#x4E8E;&#x539F;&#x6765;&#x56FE;&#x5F62;&#x53F3;&#x504F;&#x79FB;&#x3002;</p>
+<p>&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x548C;&#x8BF4;&#x660E;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x62BD;&#x8C61;&#xFF01;&#xFF01;&#xFF01;</p>
+<p><strong>&#x4F7F;&#x7528;&#x9650;&#x5236;&#xFF1A;&#x8BE5;&#x51FD;&#x6570;&#x6709;&#x4E14;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x5E26;&#x6D4B;&#x91CF;&#x503C;M&#x7684;&#x975E;&#x9762;&#x72B6;&#x56FE;&#x5F62;&#x8BA1;&#x7B97;&#x3002;</strong></p>
+<h3 id="&#x5E94;&#x7528;&#x793A;&#x4F8B;">&#x5E94;&#x7528;&#x793A;&#x4F8B;</h3>
+<ol>
+<li>&#x7B80;&#x5355;&#x7EBF;&#x578B;</li>
+</ol>
+<p><img src="../../images/LinearReferencing/ST_LocateAlong1.png" alt="a"></p>
+<pre class="language-"><code>SELECT ST_AsText(the_geom)
+FROM
+(SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;LINESTRINGM(1 2 4, 3 4 2, 9 4 3)&apos;),3) As the_geom) As foo;
+st_astext
+-----------
+MULTIPOINT M (2 3 3,9 4 3)
+</code></pre><ol>
+<li>&#x591A;&#x4E49;&#x7EBF;&#x578B;
+<img src="../../images/LinearReferencing/ST_LocateAlong2.png" alt="a"></li>
+</ol>
+<pre class="language-"><code>SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;MULTILINESTRINGM((1 2 3, 3 4 2, 9 4 3),(1 2 3,5 4 5))&apos;),3) As the_geom) As foo;
+st_astext
+--------------------------------
+MULTIPOINT M (1 2 3,9 4 3,1 2 3)
+</code></pre><p>&#x7ED3;&#x679C;&#x51FA;&#x73B0;&#x4E86;&#x4E24;&#x4E2A;&#xFF08;1 2 3&#xFF09;&#x70B9;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x4E0A;&#x56FE;MULTILINESTRINGM&#x7531;&#x5B50;&#x7EBF;1,2&#x7EC4;&#x6210;&#x7684;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x4F1A;&#x5C06;&#x591A;&#x4E49;&#x7EBF;&#x62C6;&#x5206;&#x6210;&#x5355;&#x4E49;&#x7EBF;&#xFF0C;&#x6BCF;&#x6761;&#x7EBF;&#x5355;&#x72EC;&#x8BA1;&#x7B97;&#xFF0C;&#x4ECE;&#x5B50;&#x7EBF;1&#x5F97;&#x5230; &#xFF08;1 2 3&#xFF09;&#xFF0C;&#xFF08;9 4 3&#xFF09;&#x4E24;&#x4E2A;&#x70B9;&#xFF0C;&#x4ECE;&#x5B50;&#x7EBF;2&#x5F97;&#x5230;&#xFF08;1 2 3&#xFF09;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x5408;&#x8BA1;&#x5F97;&#x5230;3&#x4E2A;&#x70B9;&#x3002;</p>
+<ol>
+<li>&#x591A;&#x4E49;&#x70B9;&#x7C7B;&#x578B;</li>
+</ol>
+<pre class="language-"><code>SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;MULTIPointM(1 2 3, 3 4 2, 9 4 3)&apos;),3) As the_geom) As foo;
+st_astext
+--------------------------------
+MULTIPOINT M (1 2 3,9 4 3)
+
+SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;MULTIPointM(1 2 3, 3 4 2, 9 4 3)&apos;),2.3) As the_geom) As foo;
+st_astext
+--------------------------------
+MULTIPOINT M EMPTY
+</code></pre><p>&#x591A;&#x4E49;&#x70B9;&#x4E0D;&#x4F1A;&#x63D2;&#x503C;&#xFF0C;m&#x503C;&#x53EA;&#x6709;&#x201C;&#x78B0;&#x201D;&#x5230;&#x8FD9;&#x4E2A;&#x70B9;&#x7684;m&#x503C;&#x624D;&#x884C;&#xFF0C;&#x4E0D;&#x4F1A;&#x63D2;&#x503C;&#xFF0C;&#x78B0;&#x4E0D;&#x5230;&#x5C31;&#x8FD4;&#x56DE;&#x7A7A;&#x3002;</p>
+<ol>
+<li>&#x5355;&#x70B9;&#x7C7B;&#x578B;</li>
+</ol>
+<pre class="language-"><code>SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;PointM(1 2 3)&apos;),3) As the_geom) As foo;
+     st_astext
+---------------------
+MULTIPOINT M (1 2 3)
+
+SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;MULTIPointM(1 2 3)&apos;),2.3) As the_geom) As foo;
+     st_astext
+--------------------
+MULTIPOINT M EMPTY
+</code></pre><p>&#x5355;&#x70B9;&#x548C;&#x591A;&#x4E49;&#x70B9;&#x4E00;&#x6837;&#xFF0C;&#x4E0D;&#x4F1A;&#x63D2;&#x503C;&#xFF0C;m&#x503C;&#x53EA;&#x6709;&#x201C;&#x78B0;&#x201D;&#x5230;&#x8FD9;&#x4E2A;&#x70B9;&#x7684;m&#x503C;&#x624D;&#x884C;&#xFF0C;&#x4E0D;&#x4F1A;&#x63D2;&#x503C;&#xFF0C;&#x78B0;&#x4E0D;&#x5230;&#x5C31;&#x8FD4;&#x56DE;&#x7A7A;&#x3002;</p>
+<ol>
+<li>&#x7B80;&#x5355;&#x7EBF;&#x578B;&#x504F;&#x79FB;&#x503C;
+<img src="../../images/LinearReferencing/ST_LocateAlong3.png" alt="a"></li>
+</ol>
+<pre class="language-"><code>--&#x6B63;&#x5411;&#x504F;&#x79FB;
+SELECT ST_AsText(the_geom)
+FROM
+(SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;LINESTRINGM(1 2 4, 3 4 2, 9 4 3)&apos;),3,1) As the_geom) As foo;
+st_astext
+---------------------------------------------------------
+MULTIPOINT M (1.29289321881345 3.70710678118655 3,9 5 3)
+</code></pre><p>&#x6CBF;&#x7740;&#x5355;&#x4E49;&#x7EBF;&#x7684;&#x524D;&#x8FDB;&#x65B9;&#x5411;&#xFF0C;&#x5BF9;&#x539F;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x70B9;&#x5411;&#x5DE6;&#x504F;&#x79FB;&#x8DDD;&#x79BB;1&#xFF0C;&#x5F62;&#x6210;&#x4E24;&#x4E2A;&#x65B0;&#x7684;&#x7ED3;&#x679C;&#x70B9;&#x3002;</p>
+<p><img src="../../images/LinearReferencing/ST_LocateAlong4.png" alt="a"></p>
+<pre class="language-"><code>--&#x8D1F;&#x5411;&#x504F;&#x79FB;
+SELECT ST_AsText(the_geom)
+FROM
+(SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;LINESTRINGM(1 2 4, 3 4 2, 9 4 3)&apos;),3,-1) As the_geom) As foo;
+st_astext
+---------------------------------------------------------
+MULTIPOINT M (2.70710678118655 2.29289321881345 3,9 3 3)
+</code></pre><ol>
+<li>&#x591A;&#x4E49;&#x7EBF;&#x578B;&#x504F;&#x79FB;&#x503C;
+<img src="../../images/LinearReferencing/ST_LocateAlong5.png" alt="a"></li>
+</ol>
+<pre class="language-"><code>SELECT ST_AsText(the_geom)
+FROM (SELECT ST_LocateAlong(
+ST_GeomFromText(&apos;MULTILINESTRINGM((1 2 3, 3 4 2, 9 4 3),(1 2 3,5 4 5))&apos;),3,1) As the_geom) As foo;
+st_astext
+---------------------------------------------------------
+MULTIPOINT M (0.292893218813453 2.70710678118655 3,9 5 3,0.552786404500042 2.89442719099992 3)
+</code></pre><p>&#x7531;&#x56FE;&#x53EF;&#x77E5;&#xFF0C;&#x5373;&#x4F7F;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x4E5F;&#x662F;&#x5206;&#x522B;&#x6839;&#x636E;&#x5B50;&#x7EBF;1&#xFF0C;&#x5B50;&#x7EBF;2&#x5206;&#x522B;&#x505A;&#x7684;&#x504F;&#x79FB;&#x3002;&#x7EA2;&#x84DD;&#x7BAD;&#x5934;&#x6784;&#x6210;&#x7684;&#x76F4;&#x89D2;&#x6846;&#x53EF;&#x77E5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ST_LineSubstring.html" class="navigation navigation-prev " aria-label="Previous page: ST_LineSubstring">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ST_LocateBetween.html" class="navigation navigation-next " aria-label="Next page: ST_LocateBetween">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ST_LocateAlong","level":"1.4.3.6","depth":3,"next":{"title":"ST_LocateBetween","level":"1.4.3.7","depth":3,"path":"vector_function/LinearReferencing/ST_LocateBetween.md","ref":"vector_function/LinearReferencing/ST_LocateBetween.md","articles":[]},"previous":{"title":"ST_LineSubstring","level":"1.4.3.5","depth":3,"path":"vector_function/LinearReferencing/ST_LineSubstring.md","ref":"vector_function/LinearReferencing/ST_LineSubstring.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","pageview-count","prism","-highlight","custom-favicon","-sharing","emphasize","-lunr","-search","search-pro","graph","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"emphasize":{},"livereload":{},"search-pro":{},"graph":{},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":"../gitbook/images/favicon.ico","pageview-count":{},"custom-favicon":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"xxx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PostGIS中文开发指南","gitbook":"*","description":"记录PostGIS使用入门，进阶，提高，附带API全解析"},"file":{"path":"vector_function/LinearReferencing/ST_LocateAlong.md","mtime":"2020-01-17T13:12:40.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-17T12:53:16.112Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
