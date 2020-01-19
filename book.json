@@ -13,7 +13,8 @@
 		"-lunr", 
 		"-search", 
 		"search-pro",
-		"graph"
+		"graph",
+		"splitter"
 	],
 	"pluginsConfig": {
 		"prism": {
