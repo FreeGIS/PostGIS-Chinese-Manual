@@ -14,7 +14,9 @@
 		"-search", 
 		"search-pro",
 		"graph",
-		"splitter"
+		"splitter",
+		"hide-element",
+		"theme-api"
 	],
 	"pluginsConfig": {
 		"prism": {
@@ -22,6 +24,15 @@
 				"prismjs/themes/prism-okaidia.css"
 			]
 		},
-		"favicon": "../gitbook/images/favicon.ico"
-	}
+		"favicon": "../gitbook/images/favicon.ico",
+		"hide-element": {
+            "elements": [".gitbook-link"]
+        },
+		"theme-api": {
+            "theme": "dark"
+        }
+	},
+	"variables": {
+        "service": "http://localhost:4000"
+    }   
 }

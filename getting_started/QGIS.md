@@ -16,7 +16,7 @@
 - 功能，3系列的功能逐渐开始超过2系列。
 
 ### 二、qgis2与qgis3界面对比
-![](../images/GettingStared/image1.png)
+![]({{book.service}}+/images/GettingStared/image1.png)
 
 ---
 
