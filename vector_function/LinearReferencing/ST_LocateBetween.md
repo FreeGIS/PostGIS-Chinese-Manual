@@ -22,7 +22,7 @@ offset：偏移量，不指定默认值为0，当偏移量为正，偏移方向�
 ### 应用示例
 1. MULTILINESTRINGM
 
-![](../../images/LinearReferencing/ST_LocateBetween1.png)
+![]({{book.service}}/images/LinearReferencing/ST_LocateBetween1.png)
 
 查询m值在1.5到3之间的图形集合，对于子线(1 2 3, 3 4 2, 9 4 3)所有的点m值都大于1.5；对于子线(1 2 3, 5 4 5)只有(1 2)点的M值等于3符合，其他都大于3，不符合。
 ```
@@ -40,7 +40,7 @@ GEOMETRYCOLLECTION M (LINESTRING M (1 2 3,3 4 2,9 4 3),POINT M (1 2 3))
 
 2. 偏移值
 
-![](../../images/LinearReferencing/ST_LocateBetween3.png)
+![]({{book.service}}/images/LinearReferencing/ST_LocateBetween3.png)
 ```
 --偏移值1是原图形的左边偏移。
 SELECT ST_AsText(the_geom)
@@ -57,7 +57,7 @@ ST_GeomFromtext('MULTILINESTRING M ((1 2 3, 3 4 2, 9 4 3),(1 2 3, 5 4 5))'),
 偏移值方向不同，拐角处理原则不同，有圆角和直角，同时，会对部分图形进行合并，比如不偏移会有一个(1 2)单独的点，偏移后被合并到偏移线上了，没有单独的点了。
 3. POLYGONM
 
-![](../../images/LinearReferencing/ST_LocateBetween2.png)
+![]({{book.service}}/images/LinearReferencing/ST_LocateBetween2.png)
 
 从一个面中查询测量值2.5到3之间的面区域。
 

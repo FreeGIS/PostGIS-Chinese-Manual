@@ -11,39 +11,39 @@
 ### 二、qgis配置postgresql连接信息
 1. **第一步右键postgis按钮，添加新的连接，如下图**：
 
-![](../images/GettingStared/image6.png)
+![]({{book.service}}/images/GettingStared/image6.png)
 
 2. **第二步填写postgresql连接信息，如下图：**
 > ps:记住一定得记住保存密码和用户，选择store。不然每次使用都需要重新输入账户名和密码。
-![](../images/GettingStared/image7.png)
+![]({{book.service}}/images/GettingStared/image7.png)
 
 3. **第三步 若是配置成功，就能有如下图列表。**
 > 在列表中能看到所有包含空间字段的表，双击就能将图层添加到qgis当中。
-![](../images/GettingStared/image8.png)
+![]({{book.service}}/images/GettingStared/image8.png)
 
 ### 三、qgis与postgis配和方法
 ### 1、qgis与postgis配合使用第一种方式--整表显示
 > 这种方式比较基础，直接双击显示就行，和普通的图层操作没有多大区别。但是若一个表中有多个空间字段，在qgis中会显示成多个图层，如下图。
 
-![](../images/GettingStared/image9.png)
+![]({{book.service}}/images/GettingStared/image9.png)
 
 ### 2、qgis与postgis配合使用第二种方式--sqlview显示
 > 这种方式是postgis使用过程中比较常见的一种使用方式。因为与传统的sql不同，空间sql写出来，到底符不符合自己的想法，需要看到具体的图形才知道。要实现这个功能，需要使用qgis>database功能，如下图：
-![](../images/GettingStared/image10.png)
+![]({{book.service}}/images/GettingStared/image10.png)
 选中sql需要执行的数据库，如下图：
 
-![](../images/GettingStared/image14.png)
+![]({{book.service}}/images/GettingStared/image14.png)
 
 创建sql window,如下图。在此窗口就能写你的空间查询sql了。
-![](../images/GettingStared/image11.png)
+![]({{book.service}}/images/GettingStared/image11.png)
 
 若你写的sql是正确的，你就能将结果数据显示在qgis上了，如下图。注意：此处一定得选择需要加装的空间字段，在这个功能中默认加装字段名为geom的空间字段。其他名字的空间字段则需要手动选择。
-![](../images/GettingStared/image12.png)
+![]({{book.service}}/images/GettingStared/image12.png)
 
 ### 3、qgis与postgis配合使用第三种方式--sqlview显示（qgis3特有的）
 > 这种方式主要是将qgis中的图层导入到postgresql的功能。如下图。在这个功能中，能够选择需要导入的图层，以及导入的数据库。
 
-![](../images/GettingStared/image13.png)
+![]({{book.service}}/images/GettingStared/image13.png)
 
 
 ### 四、总结

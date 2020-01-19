@@ -40,7 +40,7 @@ st_distance | degrees | geom | pointa
     1000 |	44.9999999999595 |	POINT(120.149348650153 30.271378344056) |	POINT(120.142 30.265)
 (1 row)
 ```
-![image](../../images/Measurement/ST_Project1.png)
+![image]({{book.service}}/images/Measurement/ST_Project1.png)
 
 ###### 计算A点空间关系外：距离-1000米，方位角45度的点
 > 距离为负数代表着该在方位角方向的方向延长线上取值。但是负值功能只在postgis2.4版本以后可以使用。
@@ -64,7 +64,7 @@ st_distance | degrees | geom | pointa
     1000 |	-135.000000000055 |	POINT(120.134652299788 30.2586212374289) |	POINT(120.142 30.265)
 (1 row)
 ```
-![image](../../images/Measurement/ST_Project2.png)
+![image]({{book.service}}/images/Measurement/ST_Project2.png)
 
 
 ### 总结

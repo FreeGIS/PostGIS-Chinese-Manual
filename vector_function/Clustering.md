@@ -20,7 +20,7 @@ integer ST_ClusterDBSCAN(geometry winset geom, float8 eps, integer minpoints);
 ### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterDBSCAN方法，根据建筑之间小于20米，且每一簇中至少包含2个图形：
 
-![](/images/Clustering/ST_ClusterDBSCAN.png)
+![]({{book.service}}/images/Clustering/ST_ClusterDBSCAN.png)
 ```
 --表坐标系是epsg:4326的经纬度，所以这里是使用0.0002大概模拟20米，非真实距离。
 SELECT gid,name, ST_ClusterDBSCAN(geom, eps:= 0.0002, minpoints := 2) 
@@ -80,7 +80,7 @@ geometry[] ST_ClusterIntersecting(geometry set g);
 
 示例数据示意图如下：
 
-![](/images/Clustering/ST_ClusterIntersecting1.png)
+![]({{book.service}}/images/Clustering/ST_ClusterIntersecting1.png)
 先构造测试数据：
 ```
 create table building2(
@@ -106,7 +106,7 @@ insert into building2(geom) values (ST_GeomFromText('POLYGON((118.778700137232 3
 ```
 
 聚类结果示意图如下：
-![](/images/Clustering/ST_ClusterIntersecting2.png)
+![]({{book.service}}/images/Clustering/ST_ClusterIntersecting2.png)
 
 执行聚类：
 
@@ -149,7 +149,7 @@ insert into temp_ClusterIntersecting select uuid_generate_v4(),unnest(ST_Cluster
 
 第三步：返回要素id和对应聚类id：
 
-![](/images/Clustering/ST_ClusterIntersecting3.png)
+![]({{book.service}}/images/Clustering/ST_ClusterIntersecting3.png)
 ```
 select b.gid,a.cid a from 
 temp_ClusterIntersecting a,
@@ -203,7 +203,7 @@ integer ST_ClusterKMeans(geometry winset geom, integer number_of_clusters);
 ### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterKMeans空间聚合，指定分类数量为3，返回每个记录的id和对应的聚类id（cid）号：
 
-![](/images/Clustering/ST_ClusterKMeans1.png)
+![]({{book.service}}/images/Clustering/ST_ClusterKMeans1.png)
 
 ```
 SELECT gid,ST_ClusterKMeans(geom,3) over () AS cid,geom FROM buildings;
@@ -211,7 +211,7 @@ SELECT gid,ST_ClusterKMeans(geom,3) over () AS cid,geom FROM buildings;
 
 指定分类数量为4：
 
-![](/images/Clustering/ST_ClusterKMeans2.png)
+![]({{book.service}}/images/Clustering/ST_ClusterKMeans2.png)
 ```
 SELECT gid,ST_ClusterKMeans(geom,4) over () AS cid,geom FROM buildings;
 ```
@@ -237,7 +237,7 @@ geometry[] a(geometry set g, float8 distance);
 ### 应用示例
 从osm的building图层中截取了一小部分测试房屋建筑数据，基于ST_ClusterWithin空间聚类，指定聚类条件是图形间的距离小于50米：
 
-![](/images/Clustering/ST_ClusterWithin1.png)
+![]({{book.service}}/images/Clustering/ST_ClusterWithin1.png)
 
 ```
 select unnest(ST_ClusterWithin(geom, 0.0005)) geom from buildings;
@@ -247,7 +247,7 @@ select unnest(ST_ClusterWithin(geom, 0.0005)) geom from buildings;
 
 指定聚类条件是图形间的距离小于30米：
 
-![](/images/Clustering/ST_ClusterWithin2.png)
+![]({{book.service}}/images/Clustering/ST_ClusterWithin2.png)
 
 ```
 select unnest(ST_ClusterWithin(geom, 0.0003)) geom from buildings;

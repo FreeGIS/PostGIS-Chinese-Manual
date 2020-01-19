@@ -1,22 +1,18 @@
 ## <span id='ST_LineInterpolatePoint'>ST_LineInterpolatePoint</span>
 ### 方法功能描述
-根据百分比返回单义线上任意点的位置。
+已知单义线以及0-1之间任意一个百分比，返回线上一个点的位置，例如：百分比为0代表线的起点，0.5代表线的中点，1代表线的终点。
 ### 函数定义
 ```
+/*
+ *@method ST_LineInterpolatePoint
+ *@param{geometry} a_linestring 一条LineString类型的单义线，不支持MultiLineString。
+ *@param{float8} a_fraction 0-1之间的小数百分比。
+ *@return {geometry} Point类型，线性插值点的位置。
+*/
 geometry ST_LineInterpolatePoint(geometry a_linestring, float8 a_fraction);
 ```
-入参：
-
-a_linestring：一条线，必须是LineString类型，不支持MultiLineString；
-
-a_fraction：百分比，0-1之间的一个小数。
-
-返回值：
-    
-一个点图形对象。
-
 ### 应用示例
-![示意图](../../images/LinearReferencing/ST_LineInterpolatePoint.jpg)
+![示意图]({{book.service}}/images/LinearReferencing/ST_LineInterpolatePoint.jpg)
 
 返回线的中点位置：
 ```
@@ -98,7 +94,7 @@ SELECT ST_AsText(ST_3dLineInterpolatePoint(the_line, 0.5))FROM (SELECT ST_GeomFr
 
 说明：计算结果不同于ST_LineInterpolatePoint，ST_3dLineInterpolatePoint计算结果已经考虑了三维z值对位置的影响。
 
-![二维点与三维点位置示意](../../images/LinearReferencing/ST_3dLineInterpolatePoint.png)
+![二维点与三维点位置示意]({{book.service}}/images/LinearReferencing/ST_3dLineInterpolatePoint.png)
 
 
 2. 测量值m计算
@@ -169,21 +165,19 @@ repeat：true可重复，如设置0.1，则从0开始，每0.1间隔采一个点
 使用示例：
 
 设置fraction=0.5，即每0.5位置获取一个点：
-![ST_LineInterpolatePoints](../../images/LinearReferencing/ST_LineInterpolatePoints.png)
+![ST_LineInterpolatePoints]({{book.service}}/images/LinearReferencing/ST_LineInterpolatePoints.png)
 
 ```
-SELECT ST_AsText(ST_LineInterpolatePoints(the_line, 0.5)) FROM (SELECT ST_GeomFromText('LINESTRING(1 1, 3 1, 3 3)') as the_line) As foo;
-                   st_astext
------------------------------------------------
-            MULTIPOINT(3 1,3 3)
- (1 行记录)
+SELECT ST_AsText(ST_LineInterpolatePoints(ST_GeomFromText('LINESTRING(1 1, 3 1, 3 3)'), 0.5));
+        st_astext
+---------------------------
+    MULTIPOINT(3 1,3 3)
 ```
 设置fraction=0.6：
 
 ```
-SELECT ST_AsText(ST_LineInterpolatePoints(the_line, 0.6)) FROM (SELECT ST_GeomFromText('LINESTRING(1 1, 3 1, 3 3)') as the_line) As foo;
-                   st_astext
------------------------------------------------
-            POINT(3 1.4)
- (1 行记录)
+SELECT ST_AsText(ST_LineInterpolatePoints(ST_GeomFromText('LINESTRING(1 1, 3 1, 3 3)'), 0.6));
+     st_astext
+---------------------
+    POINT(3 1.4)
 ```

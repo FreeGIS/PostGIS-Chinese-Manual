@@ -14,7 +14,7 @@ ST_Intersects是个粗粒度的空间关系，认定两个图形存在交集，�
 
 ##### API使用示例
 
-![](/images/SpatialRelationships/ST_Intersestc1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Intersestc1.png)
 
 ```
 --ST_Intersects geometry
@@ -69,7 +69,7 @@ select ST_Contains(ST_GeomFromText('Point(0 2)',4326),ST_GeomFromText('Point(0 2
 ```
 **判断依据：B点坐标不位于A点外部， 由于A点范围是个点域，B点落在了A的点域范围内（B点至少有一点在A内部），因此，A点是包含B点的。**
 
-![](/images/SpatialRelationships/ST_Contains2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Contains2.png)
 
 线包含点：
 ```
@@ -84,7 +84,7 @@ select ST_Contains(ST_GeomFromText('LineString(0 0,0 5)',4326),ST_GeomFromText('
 
 面包含线：
 
-![](/images/SpatialRelationships/ST_Contains1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Contains1.png)
 
 ```
 --A面 B线
@@ -111,7 +111,7 @@ select ST_Contains(A,B),ST_Within(B,A) from
 
 如果B中不位于A外部，但是不强调B中至少一点在A内部会是什么结果？
 
-![](/images/SpatialRelationships/ST_Contains3.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Contains3.png)
 
 ```
 select st_contains(st_geomfromtext('Polygon((0 0,0 5,5 5,5 0,0 0))',4326),st_geomfromtext('LineString(0 0,0 5)',4326));
@@ -154,7 +154,7 @@ select ST_Contains(A,B),ST_Within(B,A),ST_Equals(A,B) from
 作用：==ST_Contains的一种特殊情况==，ST_Contains要求B不在A外部且至少有一点在A内部，而ST_ContainsProperly则要求B中所有点都必须在A内部，而不能在A的外部或边界上。
 
 满足ST_Contains而不满足ST_ContainsProperly：
-![](/images/SpatialRelationships/ST_ContainsProperly.png)
+![]({{book.service}}/images/SpatialRelationships/ST_ContainsProperly.png)
 
 ```
 select ST_Contains(A,B),ST_ContainsProperly(A,B) from
@@ -164,7 +164,7 @@ select ST_Contains(A,B),ST_ContainsProperly(A,B) from
     true       |         false
 ```
 满足足ST_Contains又满足ST_ContainsProperly：
-![](/images/SpatialRelationships/ST_Contains1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Contains1.png)
 
 ```
 select ST_Contains(A,B),ST_ContainsProperly(A,B) from
@@ -185,7 +185,7 @@ select ST_Contains(A,B),ST_ContainsProperly(A,B) from
 说明：ST_Covers和ST_Contains在某些情况下回重叠，但是也有差异。
 
 既符合ST_Contains也符合ST_Covers：
-![](/images/SpatialRelationships/ST_ContainsProperly.png)
+![]({{book.service}}/images/SpatialRelationships/ST_ContainsProperly.png)
 
 ```
 select ST_Contains(A,B),ST_Covers(A,B) from
@@ -197,7 +197,7 @@ select ST_Contains(A,B),ST_Covers(A,B) from
 **总结：满足B中没有点在图形A外部，所以ST_Covers(A,B)=true，同时，又满足B中至少有个点在A内部，所以ST_Contains(A,B)=true。**
 
 不符合ST_Contains但符合ST_Covers：
-![](/images/SpatialRelationships/ST_Contains3.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Contains3.png)
 
 ```
 select ST_Contains(A,B),ST_Covers(A,B) from
@@ -243,7 +243,7 @@ select ST_Covers(A,B),ST_CoveredBy(B,A) from
 
 示例1：两个面相交，类型一致，但是B没有点在A的内部：
 
-![](/images/SpatialRelationships/ST_Overlaps1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps1.png)
 
 ```
 select ST_Overlaps(A,B),ST_Crosses(A,B) from
@@ -257,7 +257,7 @@ select ST_Overlaps(A,B),ST_Crosses(A,B) from
 
 示例2：两个面相交，类型一致，但是B既有点在A外部，也有点在A内部：
 
-![](/images/SpatialRelationships/ST_Overlaps2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps2.png)
 
 ```
 select ST_Overlaps(A,B),ST_Crosses(A,B) from
@@ -270,7 +270,7 @@ select ST_Overlaps(A,B),ST_Crosses(A,B) from
 
 示例3：两个线相交，交集是点：
 
-![](/images/SpatialRelationships/ST_Crosses1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Crosses1.png)
 
 ```
 select ST_Overlaps(A,B),ST_Crosses(A,B) from
@@ -283,7 +283,7 @@ select ST_Overlaps(A,B),ST_Crosses(A,B) from
 
 示例4：两个线相交，交集是线：
 
-![](/images/SpatialRelationships/ST_Crosses2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Crosses2.png)
 
 ```
 select ST_Overlaps(A,B),ST_Crosses(A,B) from
@@ -321,14 +321,14 @@ select a.gid from roads a,highways b where ST_Crosses(a.geom,b.geom);
 
 定义：ST_Touches(A,B)，相连关系，如果AB之间交集位于AB的边界的并集中，则返回TRUE。
 
-![](/images/SpatialRelationships/ST_Touches1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Touches1.png)
 
 定义解析：
     1 至少有一个公共点，因此必须相交。
     2 相交部分在AB图形边界的并集中。
 
 示例1：两个面边界相连：
-![](/images/SpatialRelationships/ST_Overlaps1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps1.png)
 
 ```
 select ST_Intersects(A,B),
@@ -348,7 +348,7 @@ select ST_Intersects(A,B),
 
 
 示例2：两个线，交集为线：
-![](/images/SpatialRelationships/ST_Crosses2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Crosses2.png)
 
 ```
 select ST_Intersects(A,B),
@@ -367,7 +367,7 @@ select ST_Intersects(A,B),
 
 示例3：两个线，交集为点情况1：
 
-![](/images/SpatialRelationships/ST_Touches2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Touches2.png)
 
 ```
 select ST_Intersects(A,B),
@@ -384,7 +384,7 @@ select ST_Intersects(A,B),
 
 示例4：两个线，交集为点情况2：
 
-![](/images/SpatialRelationships/ST_Crosses1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Crosses1.png)
 
 ```
 select ST_Intersects(A,B),
@@ -430,7 +430,7 @@ boundary | 图形边界
 exterior | 图形外部
 
 两个压盖面(ST_Overlaps)的9IM示例图：
-![](/images/SpatialRelationships/ST_Relate1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Relate1.png)
 
 上图对应的DE-9IM表：
 
@@ -441,7 +441,7 @@ boundary | 1 | 0 | 1
 exterior | 2 | 1 | 2
 解释：见上图，当AB两个面是压盖关系，面的内部有交集，交集是个面，所以interior交interior结果是2（面的维度编号）；A面内部与B面边界交集是线，所以结果是1（线的维度编号）；A面内部与B面外部交集是个面，所以结果是2；所以DE-9IM表第一行是 212，ST_Overlaps完整的intersectionMatrixPattern字符是"212101212"。
 
-![](/images/SpatialRelationships/ST_Overlaps2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps2.png)
 
 ```
 select ST_Relate(A,B),ST_Overlaps(A,B) from
@@ -467,7 +467,7 @@ PostGIS已经提供ST_Overlaps,ST_Crosses,ST_Contains等常用空间关系（这
 
 AB两面内部相交：
 
-![](/images/SpatialRelationships/ST_Overlaps2.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps2.png)
 
 当AB两面相交是，只要看interiorA与interiorB交集存在，结果是面，维度编码是2，即可满足AB是相交的，其他关系用 * 表示即可，表达“对此两者关系不关心，不做定义”，因此两面内部相交intersectionMattrixPattern='2********'，在做关系判断时有时不需要明确的维度编码，只需要判别是否有交集，没有就是F，有交集的记过可能是0,1,2之一，他们都可以用T表示存在交集，因此，'2********'在面内部相交是也可以写成'T********'。
 
@@ -492,7 +492,7 @@ select ST_Relate(A,B,'T********'),ST_Intersects(A,B) from
 
 AB两面边界相交：
 
-![](/images/SpatialRelationships/ST_Overlaps1.png)
+![]({{book.service}}/images/SpatialRelationships/ST_Overlaps1.png)
 
 AB两面边界相交，结果是线，维度编码是1，其他关系不关心，即可表达两个图形是边界相交，因此，DE-9IM表如下：
 

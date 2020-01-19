@@ -15,8 +15,7 @@
 		"search-pro",
 		"graph",
 		"splitter",
-		"hide-element",
-		"theme-api"
+		"hide-element"
 	],
 	"pluginsConfig": {
 		"prism": {
@@ -27,9 +26,6 @@
 		"favicon": "../gitbook/images/favicon.ico",
 		"hide-element": {
             "elements": [".gitbook-link"]
-        },
-		"theme-api": {
-            "theme": "dark"
         }
 	},
 	"variables": {

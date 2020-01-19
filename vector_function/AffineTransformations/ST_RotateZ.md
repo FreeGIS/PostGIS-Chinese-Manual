@@ -14,7 +14,7 @@ geometry ST_RotateZ(geometry geomA, float rotRadians);
 为方便展示，把z轴坐标统一写0，即将xyz三维，降维到xy二维，方便读者理解。（三维人脑不好理解）。
 
 示例：对已知线LINESTRING(0 0 0, 1 1 0)围绕z轴旋转90度。
-![](../../images/AffineTransformations/ST_RotateZ.png)
+![]({{book.service}}/images/AffineTransformations/ST_RotateZ.png)
 
 ```
 SELECT ST_AsEWKT(ST_RotateZ(ST_GeomFromEWKT('LINESTRINGZ(0 0 0, 1 1 0)'), pi()/2));

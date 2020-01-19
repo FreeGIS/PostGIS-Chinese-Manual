@@ -17,7 +17,7 @@ geometry ST_LocateBetweenElevations(geometry geom, float8 elevation_start, float
 
 1. LineString
 
-![](../../images/LinearReferencing/ST_LocateBetweenElevations2.png)
+![]({{book.service}}/images/LinearReferencing/ST_LocateBetweenElevations2.png)
 ```
 SELECT ST_AsTexT(ST_LocateBetweenElevations(
 ST_GeomFromText('LINESTRINGZ(1 2 3, 4 5 6)'), 2, 4)) As ewelev;
@@ -26,7 +26,7 @@ ST_GeomFromText('LINESTRINGZ(1 2 3, 4 5 6)'), 2, 4)) As ewelev;
     MULTILINESTRING Z ((1 2 3,2 3 4))
 ```
 2. Polygon
-![](../../images/LinearReferencing/ST_LocateBetweenElevations1.png)
+![]({{book.service}}/images/LinearReferencing/ST_LocateBetweenElevations1.png)
 从一个高程面中查询高程值2.5到3之间的面区域。
 
 ```

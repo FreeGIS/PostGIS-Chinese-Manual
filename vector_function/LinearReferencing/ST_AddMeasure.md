@@ -20,7 +20,7 @@ geometry ST_AddMeasure(geometry geom_mline, float8 measure_start, float8 measure
 
 1. LineString
 
-![](../../images/LinearReferencing/ST_AddMeasure.png)
+![]({{book.service}}/images/LinearReferencing/ST_AddMeasure.png)
 
 ```
 SELECT ST_AsText(ST_AddMeasure(
@@ -45,7 +45,7 @@ LINESTRING M (118 32 1,119 32 2,121 32 4)
 
 3. MultiLineString
 
-![](../../images/LinearReferencing/ST_AddMeasure1.png)
+![]({{book.service}}/images/LinearReferencing/ST_AddMeasure1.png)
 
 ```
 SELECT ST_AsText(ST_AddMeasure(
@@ -58,7 +58,7 @@ ewelev;
 
 那么第二条子线(118 33, 119 33, 121 33)就会变成(121 32,122 32,124 32)。
 
-![](../../images/LinearReferencing/ST_AddMeasure2.png)
+![]({{book.service}}/images/LinearReferencing/ST_AddMeasure2.png)
 
 拼接到一起，然后计算测量值，然后再把测量值对应写会第二条子线上。
 

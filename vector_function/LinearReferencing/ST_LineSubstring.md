@@ -18,7 +18,7 @@ endfraction：0-1之间的一个百分比数。
 ### 应用示例
 1. startfraction<endfraction
 
-![](../../images/LinearReferencing/ST_LineSubstring1.png)
+![]({{book.service}}/images/LinearReferencing/ST_LineSubstring1.png)
 ```
 SELECT ST_AsText(ST_LineSubString(ST_GeomFromText('LINESTRING(118 32,119 33)'), 0.333, 0.666));
             st_astext
@@ -27,7 +27,7 @@ LINESTRING(118.333 32.333,118.666 32.666)
 ```
 2. startfraction=endfraction
 
-![](../../images/LinearReferencing/ST_LineSubstring2.png)
+![]({{book.service}}/images/LinearReferencing/ST_LineSubstring2.png)
 ```
 SELECT ST_AsText(ST_LineSubString(ST_GeomFromText('LINESTRING(118 32,119 33)'), 0.333, 0.333));
     st_astext
@@ -48,7 +48,7 @@ ERROR:  错误:  2nd arg must be smaller then 3rd arg
 
 所以有种特殊情况下，即MULTILINESTRING中的子线都是连续的，那么他们可以合并成一个新的LineString结果。
 
-![](../../images/LinearReferencing/ST_LineSubstring3.png)
+![]({{book.service}}/images/LinearReferencing/ST_LineSubstring3.png)
 ```
 
 SELECT ST_AsText(ST_LineSubString(ST_LineMerge(ST_GeomFromText('MULTILINESTRING((118 32,118.5 32.5),(118.5 32.5,119 33))')),0.333, 0.666));

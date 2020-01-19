@@ -85,7 +85,7 @@ LINESTRING ZM (0 0 0 0,2 2 2 2)
 
 
 指定原点缩放：
-![](../../images/AffineTransformations/ST_Affine4.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine4.png)
 
 ```
 --对输入线原地缩放，指定缩放原点为原图形LINESTRING(118 32, 119 33)的几何质心118.5,32.5。

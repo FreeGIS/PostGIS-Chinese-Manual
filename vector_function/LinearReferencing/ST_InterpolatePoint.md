@@ -18,7 +18,7 @@ float8 ST_InterpolatePoint(geometry line, geometry point);
 
 1. 点在线上
 
-![](../../images/LinearReferencing/ST_InterpolatePoint1.png)
+![]({{book.service}}/images/LinearReferencing/ST_InterpolatePoint1.png)
 ```
 SELECT ST_InterpolatePoint(st_geomfromtext('LINESTRING M (0 0 0, 10 0 20)'), st_geomfromtext('POINT(5 0)'));
     ST_InterpolatePoint
@@ -27,7 +27,7 @@ SELECT ST_InterpolatePoint(st_geomfromtext('LINESTRING M (0 0 0, 10 0 20)'), st_
 ```
 2. 点不在线上
 
-![](../../images/LinearReferencing/ST_InterpolatePoint2.png)
+![]({{book.service}}/images/LinearReferencing/ST_InterpolatePoint2.png)
 
 ```
 SELECT ST_InterpolatePoint(st_geomfromtext('LINESTRING M (0 0 0, 10 0 20)'), st_geomfromtext('POINT(5 5)'));

@@ -29,7 +29,7 @@ offset：偏移量，意思是生成后的图形相对于原来图形进行偏�
 ### 应用示例
 1. 简单线型
 
-![a](../../images/LinearReferencing/ST_LocateAlong1.png)
+![a]({{book.service}}/images/LinearReferencing/ST_LocateAlong1.png)
 
 ```
 SELECT ST_AsText(the_geom)
@@ -41,7 +41,7 @@ st_astext
 MULTIPOINT M (2 3 3,9 4 3)
 ```
 2. 多义线型
-![a](../../images/LinearReferencing/ST_LocateAlong2.png)
+![a]({{book.service}}/images/LinearReferencing/ST_LocateAlong2.png)
 
 ```
 SELECT ST_AsText(the_geom)
@@ -89,7 +89,7 @@ MULTIPOINT M EMPTY
 ```
 单点和多义点一样，不会插值，m值只有“碰”到这个点的m值才行，不会插值，碰不到就返回空。
 5. 简单线型偏移值
-![a](../../images/LinearReferencing/ST_LocateAlong3.png)
+![a]({{book.service}}/images/LinearReferencing/ST_LocateAlong3.png)
 
 ```
 --正向偏移
@@ -104,7 +104,7 @@ MULTIPOINT M (1.29289321881345 3.70710678118655 3,9 5 3)
 沿着单义线的前进方向，对原来的结果点向左偏移距离1，形成两个新的结果点。
 
 
-![a](../../images/LinearReferencing/ST_LocateAlong4.png)
+![a]({{book.service}}/images/LinearReferencing/ST_LocateAlong4.png)
 
 ```
 --负向偏移
@@ -118,7 +118,7 @@ MULTIPOINT M (2.70710678118655 2.29289321881345 3,9 3 3)
 ```
 
 6. 多义线型偏移值
-![a](../../images/LinearReferencing/ST_LocateAlong5.png)
+![a]({{book.service}}/images/LinearReferencing/ST_LocateAlong5.png)
 
 ```
 SELECT ST_AsText(the_geom)

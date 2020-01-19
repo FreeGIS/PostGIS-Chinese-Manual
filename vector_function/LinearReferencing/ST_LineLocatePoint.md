@@ -46,7 +46,7 @@ a_point：一个已知点。
 
 
 点不在线上：
-![ST_LineLocatePoint](../../images/LinearReferencing/ST_LineLocatePoint1.png)
+![ST_LineLocatePoint]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint1.png)
 
 ```
 select ST_LineLocatePoint(st_geomfromtext('LineString(1 1,3 1,3 3)'), st_geomfromtext('Point(3 4)'));
@@ -55,7 +55,7 @@ select ST_LineLocatePoint(st_geomfromtext('LineString(1 1,3 1,3 3)'), st_geomfro
     1
     
 ```
-![ST_LineLocatePoint](../../images/LinearReferencing/ST_LineLocatePoint2.png)
+![ST_LineLocatePoint]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint2.png)
 
 
 ```
@@ -70,14 +70,14 @@ select ST_LineLocatePoint(st_geomfromtext('LineString(1 1,3 1,3 3)'), st_geomfro
 
 ### 典型应用场景
 单独使用这个函数比较少，都是结合其他函数一起使用。比如在路径分析中，有起点终点，得到一个完整的路径，路径是由路段拼接的，而起点终点不一定就在路段上，首尾就会有时长一部分有时短一截，显示效果比较差，如下图：
-![起点终点与路径](../../images/LinearReferencing/ST_LineLocatePoint3.png)
+![起点终点与路径]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint3.png)
 
 通过ST_LineLocatePoint计算出起点终点在路径上的百分比，然后调用ST_SubString函数根据百分截取一个子路段，可以优化这样的效果，如下图：
-![优化后的起点终点与路径](../../images/LinearReferencing/ST_LineLocatePoint4.png)
+![优化后的起点终点与路径]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint4.png)
 
 sql示例：
 
-![结果图示意](../../images/LinearReferencing/ST_LineLocatePoint5.png)
+![结果图示意]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint5.png)
 ```
 do language plpgsql $$  
  DECLARE

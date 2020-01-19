@@ -7,7 +7,7 @@
 ## 案例
 ###### 场景描述
 > 用线性参考描述高速公路里程的问题。
-![](../../images/LinearReferencing/line1.png)
+![]({{book.service}}/images/LinearReferencing/line1.png)
 ###### 1、 纯几何
 这种情况数据部门只提供一条几何线，所有里程全部是根据几何特性计算而来。这是最舒服的一个使用场景，完全是几何逻辑。而且计算结果和理论上的值是一样的，在这种情况是完全是没问题的。
 
@@ -18,7 +18,7 @@ select ST_InterpolatePoint(ST_AddMeasure(line,0,length),point),length/10 from te
 -------
 17465.740134863605  | 17465.740134864067
 ```
-![](../../images/LinearReferencing/line2.png)
+![]({{book.service}}/images/LinearReferencing/line2.png)
 
 ###### 2、 半几何
 这种情况数据部门提供了一条几何线的同时，也提供了起点的里程，也就是这个里程不是从0开始。这种情况也是容易处理，只需要将ST_AddMeasure函数的输入给调整一下就OK。
@@ -27,7 +27,7 @@ select ST_InterpolatePoint(ST_AddMeasure(line,0,length),point),length/10 from te
 with test_table as (select geom as line, ST_LineInterpolatePoint(geom,0.1) as point, st_length(geom::geography) as length,ST_LineInterpolatePoint(geom,0) as point0 ,ST_LineInterpolatePoint(geom,1) as point1  from test_line)
 select ST_InterpolatePoint(ST_AddMeasure(line,1000,length+1000),point),length/10,point from test_table
 ```
-![](../../images/LinearReferencing/line3.png)
+![]({{book.service}}/images/LinearReferencing/line3.png)
 
 
 ###### 3、 非几何
@@ -48,7 +48,7 @@ select ST_InterpolatePoint(line,point),length/10,point from test_table
 ---------
 39565.59199126357 | 17465.740134864067	
 ```
-![](../../images/LinearReferencing/line4.png)
+![]({{book.service}}/images/LinearReferencing/line4.png)
 
 
 

@@ -32,7 +32,7 @@ geometry ST_Rotate(geometry geomA, float rotRadians, geometry pointOrigin);
     pointOrigin:旋转原点，为point对象，如设置旋转原点是POINY(118 32)。
 ### 应用示例
 1. 不指定原点，默认原点是0 0：
-![](../../images/AffineTransformations/ST_Affine2.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine2.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Rotate(geom,pi()*30.0/180)) geom2 
@@ -43,7 +43,7 @@ LINESTRING(1 1,2 2) | LINESTRING(0.366025403784439 1.36602540378444,0.7320508075
 ```
 2. 指定xy：
 
-![](../../images/AffineTransformations/ST_Affine3.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine3.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Rotate(geom,pi()*30.0/180,118.5,32.5)) geom2 

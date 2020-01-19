@@ -40,7 +40,7 @@ geom
     POINT Z (120.000631125869 31.0009819870587 10000.0000060715)
 (1 row)
 ```
-![image](../../images/Measurement/ST_3DClosestPoint1.png)
+![image]({{book.service}}/images/Measurement/ST_3DClosestPoint1.png)
 
 ###### 2、二维点到三维弧线的最近点
 > 在这种情况下，该函数其实只能当作ST_ClosestPoint函数使用，唯一的区别是ST_ClosestPoint返回的二维点，ST_3DClosestPoint返回的是三维点，这两个结果都都投影到平面，其实是同一个点。在这中情况Z值是不参与计算的。而Z值的取值则是2D结果点在3D弧线的投射。
@@ -70,7 +70,7 @@ point1|point2
   POINT Z (120.134709079275 31.1596818998198 8266.44949070754)	POINT(120.134709073393 31.1596818950798)
 (1 row)
 ```
-![image](../../images/Measurement/ST_3DClosestPoint2.png)
+![image]({{book.service}}/images/Measurement/ST_3DClosestPoint2.png)
 
 ###### 3、二维点与三维弧线
 > 在这种情况下，ST_3DClosestPoint与ST_ClosestPoint的计算结果没有任何差别。

@@ -16,18 +16,18 @@
 - 功能，3系列的功能逐渐开始超过2系列。
 
 ### 二、qgis2与qgis3界面对比
-![]({{book.service}}+/images/GettingStared/image1.png)
+![]({{book.service}}/images/GettingStared/image1.png)
 
 ---
 
-![](../images/GettingStared/image2.png)
+![]({{book.service}}/images/GettingStared/image2.png)
 
 ### 三、qgis2与qgis3样式对比
-![](../images/GettingStared/image3.png)
+![]({{book.service}}/images/GettingStared/image3.png)
 
 ---
 
-![](../images/GettingStared/image4.png)
+![]({{book.service}}/images/GettingStared/image4.png)
 
 ### 四、qgis2与qgis3的选择
 - 如果只是配合postgis实验使用，选择2系列。
@@ -38,7 +38,7 @@
 
 ### 五、qgis安装
 > 在windows安装qgis软件是比较容易的，每一步都选择下一步就行。唯一需要注意的是，在安装过程中一定记得不要选择获取样例数据，因为GIS数据下载速度会让你崩溃，估计小半天都无法安装完成。如下图：
-![](../images/GettingStared/image5.png)
+![]({{book.service}}/images/GettingStared/image5.png)
 
 
 ### 六、总结

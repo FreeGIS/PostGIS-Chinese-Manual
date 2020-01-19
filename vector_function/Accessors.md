@@ -193,7 +193,7 @@ st_hasarc
 
 作用：测试多边形是否具有逆时针方向的外环和顺时针方向的内环。
 
-![](/images/Accessors/ST_IsPolygonCCW.png)
+![]({{book.service}}/images/Accessors/ST_IsPolygonCCW.png)
 ```
 --外环是逆时针方向，内环是顺时针方向
 select ST_IsPolygonCCW(ST_GeomFromEWKT('Polygon((0 0,3 0,3 3,0 3,0 0),(1 1,1 2,2 2,2 1,1 1))'));
@@ -210,7 +210,7 @@ ST_IsPolygonCCW
 ### <span id='ST_IsPolygonCW'>ST_IsPolygonCW</span>
 作用：测试多边形是否具有顺时针方向的外环和逆时针方向的内环。
 
-![](/images/Accessors/ST_IsPolygonCW.png)
+![]({{book.service}}/images/Accessors/ST_IsPolygonCW.png)
 ```
 select ST_IsPolygonCW(ST_GeomFromEWKT('Polygon((0 0,0 3,3 3,3 0,0 0),(1 1,2 1,2 2,1 2,1 1))'));
 ST_IsPolygonCW
@@ -235,7 +235,7 @@ st_isclosed
 
 多义线，每个子线都是首尾相连的：
 
-![](/images/Accessors/ST_IsClosed1.png)
+![]({{book.service}}/images/Accessors/ST_IsClosed1.png)
 ```
 SELECT ST_IsClosed(ST_GeomFromEWKT('MULTILINESTRING((0 0, 1 1,1 0,0 0),(3 3,4 4,4 3,3 3))'));
 st_isclosed
@@ -245,7 +245,7 @@ st_isclosed
 
 多义线，至少有个子线不是首尾相连的：
 
-![](/images/Accessors/ST_IsClosed2.png)
+![]({{book.service}}/images/Accessors/ST_IsClosed2.png)
 ```
 
 SELECT ST_IsClosed(ST_GeomFromEWKT('MULTILINESTRING((0 0, 1 1,1 0,0 0),(3 3,4 4,4 3,3.5 3))'));
@@ -319,7 +319,7 @@ st_isempty
 
 
 ​    
-![](/images/Accessors/ST_IsRing1.png)
+![]({{book.service}}/images/Accessors/ST_IsRing1.png)
 ```
 SELECT ST_IsRing(geom), ST_IsClosed(geom), ST_IsSimple(geom)
 FROM (SELECT 'LINESTRING(0 0, 0 1, 1 1, 1 0, 0 0)'::geometry AS geom) AS foo;
@@ -328,7 +328,7 @@ st_isring | st_isclosed | st_issimple
 true      |   true      | true
 ```
 
-![](/images/Accessors/ST_IsRing2.png)
+![]({{book.service}}/images/Accessors/ST_IsRing2.png)
 ```
 SELECT ST_IsRing(geom), ST_IsClosed(geom), ST_IsSimple(geom)
 FROM (SELECT 'LINESTRING(0 0, 0 1, 1 0, 1 1, 0 0)'::geometry AS geom) AS foo;
@@ -375,7 +375,7 @@ GEOMETRYCOLLECTION EMPTY
 ```
 2 对于未闭合线而言，图形边界是其起点和终点：
 
-![](/images/Accessors/ST_Boundary1.png)
+![]({{book.service}}/images/Accessors/ST_Boundary1.png)
 ```
 SELECT ST_AsText(ST_Boundary('LINESTRING(1 1,2 2,3 -1)'::geometry));
        st_astext
@@ -402,7 +402,7 @@ SELECT ST_AsText(ST_Boundary('LINESTRING(1 1,2 2,3 -1,1 1)'::geometry));
 
 单义面：
 
-![](/images/Accessors/ST_Boundary2.png)
+![]({{book.service}}/images/Accessors/ST_Boundary2.png)
 ```
 select ST_AsText(ST_Boundary(ST_GeomFromEWKT('Polygon((0 0,3 0,3 3,0 3,0 0),(1 1,1 2,2 2,2 1,1 1))')));
        st_astext
@@ -412,7 +412,7 @@ MULTILINESTRING((0 0,3 0,3 3,0 3,0 0),(1 1,1 2,2 2,2 1,1 1))
 多义面：
 
 
-![](/images/Accessors/ST_Boundary3.png)
+![]({{book.service}}/images/Accessors/ST_Boundary3.png)
 ```
 select ST_AsText(ST_Boundary(
 	ST_GeomFromEWKT('MultiPolygon(((0 0,1 0,1 1,0 1,0 0)),((2 2,2 3,3 3,3 2,2 2)))')));
@@ -561,7 +561,7 @@ ST_NumInteriorRing | 与ST_NumInteriorRings一模一样
 ST_ExteriorRing | 获取Polygon的外环(Polygon只有一个外环)
 ST_InteriorRingN | 获取Polygon的指定序号的内环(Polygon可以有多个内环)
 
-![](/images/Accessors/ST_NumInteriorRings1.png)
+![]({{book.service}}/images/Accessors/ST_NumInteriorRings1.png)
 
 所谓“内环”就是面内组成孔洞的闭合线（孔洞边界线）。
 
@@ -578,7 +578,7 @@ ST_NRings   |    ST_NumInteriorRings
     1       |            0
 ```
 --有孔洞
-![](/images/Accessors/ST_NumInteriorRings.png)
+![]({{book.service}}/images/Accessors/ST_NumInteriorRings.png)
 ```
 --返回孔洞数量
 SELECT ST_NRings(geom),ST_NumInteriorRings(geom) from (SELECT ST_GeomFromEWKT('Polygon((0 0,3 0,3 3,0 3,0 0),(1 1,1 2,2 2,2 1,1 1))') AS geom) AS foo;

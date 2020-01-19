@@ -16,7 +16,7 @@
 ### 四、应用示例
 > 借助ST_Area测量下图中的六边形的网格面积
 
-![image](../../images/Measurement/ST_Area1.png)
+![image]({{book.service}}/images/Measurement/ST_Area1.png)
 
 ###### 第一个示例，不经过坐标转换，在4326坐标系下的计算
 > 此示例借助了构造空间对象函数st_geomfromtext构造六边形
@@ -70,7 +70,7 @@ SELECT
 
 ### 五、总结
 > 借助qgis对上述的六边形进行面积测量，测量结果如下图所示。
-![image](../../images/Measurement/ST_Area2.png)
+![image]({{book.service}}/images/Measurement/ST_Area2.png)
 
 > 从上图来看，精度对比如下：
 st_area(geom::geography)>st_area(geom::geography，false)>st_area(st_transform(geom,3567)) >st_area(geom) 

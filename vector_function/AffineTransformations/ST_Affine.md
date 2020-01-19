@@ -66,7 +66,7 @@ z' = g*x + h*y + i*z + zoff
 ```
 则套入二维的仿射变换函数：**ST_Affine(geometry geomA, float a, float b, float d, float e, float xoff, float yoff)**，那么a=1,b=0,xoff=1,d=0,e=1,yoff=0.5。
 
-![](../../images/AffineTransformations/ST_Affine1.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine1.png)
 
 二维：
 
@@ -123,7 +123,7 @@ LINESTRING(118 32 10,119 33 20) | LINESTRING(119 32.5 11,120 33.5 21)
   \ 0              0          1 /
 ```
 执行转换：
-![](../../images/AffineTransformations/ST_Affine2.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine2.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, cos(pi()/6), -sin(pi()/6), sin(pi()/6), cos(pi()/6),0,0)) geom2 
@@ -148,7 +148,7 @@ LINESTRING(1 1,2 2) | LINESTRING(0.366025403784439 1.36602540378444,0.7320508075
   | sin(pi()/6) cos(pi()/6)   y-x*sin(pi()/6)-y*cos(pi()/6) |
   \ 0              0                             1          /
 ```
-![](../../images/AffineTransformations/ST_Affine3.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine3.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, cos(pi()/6), -sin(pi()/6), sin(pi()/6), cos(pi()/6),118.5-118.5*cos(pi()/6)+32.5*sin(pi()/6),32.5-118.5*sin(pi()/6)-32.5*cos(pi()/6))) geom2 
@@ -204,7 +204,7 @@ LINESTRING(118 32, 119 33) | LINESTRING(59 16,59.5 16.5)
   | 0 sy  32.5/2  |
   \ 0  0    1     /
 ```
-![](../../images/AffineTransformations/ST_Affine4.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine4.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, 0.5,0, 0, 0.5,59.25,16.25)) geom2 
@@ -225,7 +225,7 @@ LINESTRING(118 32, 119 33) | LINESTRING(118.25 32.25,118.75 32.75)
   \  0  0  1 /
 ```
 示例sql：
-![](../../images/AffineTransformations/ST_Affine5.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine5.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, 1,0.1, 0.1, 1,0,0)) geom2 
@@ -236,7 +236,7 @@ POLYGON((0 0,0 1,1 1,1 0,0 0)) | POLYGON((0 0,0.1 1,1.1 1.1,1 0.1,0 0))
 ```
 
 说明：shx，shy其实不是很清楚，看着上图的结果，有点感觉，但是不是很清楚，我们使用更多的例子说明，先将最小点从0 0平移到1 1：
-![](../../images/AffineTransformations/ST_Affine6.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine6.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, 1,0.1, 0.1, 1,0,0)) geom2 
@@ -247,7 +247,7 @@ Polygon((1 1, 1 2,2 2,2 1,1 1)) | POLYGON((1.1 1.1,1.2 2.1,2.2 2.2,2.1 1.2,1.1 1
 ```
 
 最小点从0 0平移到2 2：
-![](../../images/AffineTransformations/ST_Affine7.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine7.png)
 
 ```
 select st_astext(geom) geom1,st_astext(ST_Affine(geom, 1,0.1, 0.1, 1,0,0)) geom2 
@@ -258,7 +258,7 @@ POLYGON((2 2,2 3,3 3,3 2,2 2)) | POLYGON((2.2 2.2,2.3 3.2,3.3 3.3,3.2 2.3,2.2 2.
 ```
 
 结论：剪切变换计算也是基于原点0 0计算的，数据越大，两个图形剪切后就会相隔越远。shx，shy可以用下面的示意图表示：
-![](../../images/AffineTransformations/ST_Affine8.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine8.png)
 
 
 ### 扩展说明

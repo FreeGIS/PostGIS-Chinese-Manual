@@ -1,7 +1,7 @@
 ## ST_Azimuth
 ### 一、方法功能描述
 > 该方法返回两点之间弧度方位角，如果两个点重合，则返回NULL。方位角是从北方参考的角度，顺时针为正：North = 0; 东方=π/ 2; 南=π; 西方=3π/ 2。方位角是数学概念，定义为参考平面和点之间的角度，单位为弧度。如示例所示，可以使用内置的PostgreSQL函数degree（）将单位转换为度。**在postgis2.5之前，是postgis中唯一一个能计算角度的函数**。
-![image](../../images/Measurement/ST_Azimuth1.png)
+![image]({{book.service}}/images/Measurement/ST_Azimuth1.png)
 
 ### 二、函数定义
 1. 该函数的参数支持geometry与geography两种数据类型 
@@ -18,7 +18,7 @@ float ST_Azimuth(geography pointA, geography pointB);
 ### 三、应用示例
 > 计算A，B两点之间的方位角
 
-![image](../../images/Measurement/ST_Azimuth2.png)
+![image]({{book.service}}/images/Measurement/ST_Azimuth2.png)
 ###### 使用geomtry参与计算
 
 ```
@@ -69,11 +69,11 @@ select degrees(ST_Azimuth(pointa::geography ,pointb::geography )) from test_tabl
     -134.999999998456
 (1 row)
 ```
-![image](../../images/Measurement/ST_Azimuth3.png)
+![image]({{book.service}}/images/Measurement/ST_Azimuth3.png)
 
 ### 四、总结
 > 下图使用qgis软件对AB两点的方位角计算结果。
-![image](../../images/Measurement/ST_Azimuth4.png)
+![image]({{book.service}}/images/Measurement/ST_Azimuth4.png)
 > 从函数使用结果来看ST_Azimuth(geometry ,geometry)的结果为48.81，ST_Azimuth(geography, geography)结果44.762。第二种计算方式更接近qgis软件的量测结果。
 ###### 思路拓展
 - ST_Azimuth函数可以角度量测

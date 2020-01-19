@@ -22,11 +22,11 @@ float ST_Angle(geometry line1, geometry line2);
 ### 三、应用示例
 > **计算a,b,c,d四个点之间的角度和计算四点构成的线之间的角度关系**。
 > 
-![image](../../images/Measurement/ST_Angle1.png)
+![image]({{book.service}}/images/Measurement/ST_Angle1.png)
 ###### 1、计算向量AC(线)与向量BD(线)之间夹角
 > 在此处用向量来代表线更容易理解一点。
 
-![image](../../images/Measurement/ST_Angle2.png)
+![image]({{book.service}}/images/Measurement/ST_Angle2.png)
 
 ```
 with test_table as (select 
@@ -51,7 +51,7 @@ degrees
 ###### 2、计算向量AC(线)与向量DB(线)之间夹角
 > 在此处用向量来代表线更容易理解一点。
 
-![image](../../images/Measurement/ST_Angle3.png)
+![image]({{book.service}}/images/Measurement/ST_Angle3.png)
 
 ```
 with test_table as (select 
@@ -75,7 +75,7 @@ degrees
 ###### 3、以点A、点C、点B三点为输入
 > 该输入可以理解成向量AC与向量CB之间的夹角
 
-![image](../../images/Measurement/ST_Angle4.png)
+![image]({{book.service}}/images/Measurement/ST_Angle4.png)
 
 ```
 with test_table as (select 
@@ -95,7 +95,7 @@ degrees
 ###### 4、以点B、点C、点A三点为输入
 > 该输入可以理解成向量CA与向量BC之间的夹角
 
-![image](../../images/Measurement/ST_Angle5.png)
+![image]({{book.service}}/images/Measurement/ST_Angle5.png)
 
 ```
 with test_table as (select 
@@ -114,7 +114,7 @@ degrees
 ###### 5、以点A、点C、点D、点B四点为输入
 > 该输入可以理解成向量AC与向量DB之间的夹角
 
-![image](../../images/Measurement/ST_Angle6.png)
+![image]({{book.service}}/images/Measurement/ST_Angle6.png)
 
 ```
 with test_table as (select 
@@ -135,7 +135,7 @@ degrees
 ###### 6、以点C、点A、点D、点B四点为输入
 > 该输入可以理解成向量CA与向量DB之间的夹角
 
-![image](../../images/Measurement/ST_Angle7.png)
+![image]({{book.service}}/images/Measurement/ST_Angle7.png)
 
 ```
 with test_table as (select 
@@ -156,7 +156,7 @@ degrees
 
 ###### 7、计算两条平行线之间的角度
 > 在此处借助了ST_OffsetCurve函数构造了AC线的平行线，计算结果为0
-![image](../../images/Measurement/ST_Angle8.png)
+![image]({{book.service}}/images/Measurement/ST_Angle8.png)
 
 ```
 with test_table as (select 

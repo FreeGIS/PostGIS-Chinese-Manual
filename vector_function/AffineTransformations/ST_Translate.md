@@ -16,7 +16,7 @@ geometry ST_Translate(geometry g1, float deltax, float deltay);
 geometry ST_Translate(geometry g1, float deltax, float deltay, float deltaz);
 ```
 ### 应用示例
-![](../../images/AffineTransformations/ST_Affine1.png)
+![]({{book.service}}/images/AffineTransformations/ST_Affine1.png)
 
 二维：
 
