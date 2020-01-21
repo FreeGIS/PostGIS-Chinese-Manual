@@ -1,9 +1,8 @@
 ﻿{
-	"title" : "PostGIS中文开发指南",
+	"title" : "PostGIS中文指南",
 	"author" : "xxx",
 	"description" : "记录PostGIS使用入门，进阶，提高，附带API全解析",
 	"plugins":[
-		"chapter-fold",
 		"pageview-count",
 		"prism", 
 		"-highlight",
@@ -15,7 +14,8 @@
 		"search-pro",
 		"graph",
 		"splitter",
-		"hide-element"
+		"hide-element",
+		"folding-chapters"
 	],
 	"pluginsConfig": {
 		"prism": {
