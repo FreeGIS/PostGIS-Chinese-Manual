@@ -1,16 +1,17 @@
-## ST_LineLocatePoint
+## <span id='ST_LineLocatePoint'>ST_LineLocatePoint</span>
 ### 方法功能描述
 已知一条线和某个点，该点可在线上，也可以不在线上，当点不在线上时，实际上是先从线上计算出与该点最近的点，然后计算位于线上这个点位于线上的[0,1]之间的一个百分比。
 
 ### 函数定义
 ```
+/*
+ *@method ST_LineLocatePoint
+ *@param{geometry} a_linestring 一条LineString(Z,M,ZM)类型的单义线，不支持MultiLineString。
+ *@param{geometry} a_point 任意一点。
+ *@return {float8} 任意一点落在线上的百分比。
+*/
 float8 ST_LineLocatePoint(geometry a_linestring, geometry a_point);
 ```
-参数定义：
-
-a_linestring：一条线，LineString及其扩展类型LineStringZ，LineStringM或者LineStringZM，但是不重要，zm都不会参与计算。
-
-a_point：一个已知点。
 
 **使用限制：该函数只适用二维，根本不会考虑三维情况。**
 
