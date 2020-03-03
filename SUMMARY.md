@@ -98,9 +98,9 @@
 		- [ST_ClusterKMeans](vector_function/Clustering.md#ST_ClusterKMeans)
 		- [ST_ClusterWithin](vector_function/Clustering.md#ST_ClusterWithin)
 	- 8.16 线性参考
-		- [ST_LineInterpolatePoint](vector_function/LinearReferencing/ST_LineInterpolatePoint.md#ST_LineInterpolatePoint)
-		- [ST_3dLineInterpolatePoint](vector_function/LinearReferencing/ST_LineInterpolatePoint.md#ST_3dLineInterpolatePoint)
-		- [ST_LineInterpolatePoints](vector_function/LinearReferencing/ST_LineInterpolatePoint.md#ST_LineInterpolatePoints)
+		- [ST_LineInterpolatePoint](vector_function/LinearReferencing/ST_LineInterpolatePoint.md)
+		- [ST_3dLineInterpolatePoint](vector_function/LinearReferencing/ST_3dLineInterpolatePoint.md)
+		- [ST_LineInterpolatePoints](vector_function/LinearReferencing/ST_LineInterpolatePoints.md)
 		- [ST_LineLocatePoint](vector_function/LinearReferencing/ST_LineLocatePoint.md)
 		- [ST_LineSubstring](vector_function/LinearReferencing/ST_LineSubstring.md)
 		- [ST_LocateAlong](vector_function/LinearReferencing/ST_LocateAlong.md)

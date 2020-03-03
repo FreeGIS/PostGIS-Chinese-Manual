@@ -15,7 +15,7 @@ float8 ST_LineLocatePoint(geometry a_linestring, geometry a_point);
 
 **使用限制：该函数只适用二维，根本不会考虑三维情况。**
 
-### 应用示例
+### API示例
 点在线上常规操作：
 ```
  select ST_LineLocatePoint(st_geomfromtext('LineString(1 1,3 1,3 3)'), st_geomfromtext('Point(3 1)'));
@@ -69,7 +69,7 @@ select ST_LineLocatePoint(st_geomfromtext('LineString(1 1,3 1,3 3)'), st_geomfro
 
 结论：符合使用限制说明，仅仅用于二维，zm值对计算结果无影响。点不在线上时，实际等同于先根据ST_ClosestPoint函数计算该点对应线上的一个最近点，然后使用最近点计算其在线上的百分比。
 
-### 典型应用场景
+### 案例场景
 单独使用这个函数比较少，都是结合其他函数一起使用。比如在路径分析中，有起点终点，得到一个完整的路径，路径是由路段拼接的，而起点终点不一定就在路段上，首尾就会有时长一部分有时短一截，显示效果比较差，如下图：
 ![起点终点与路径]({{book.service}}/images/LinearReferencing/ST_LineLocatePoint3.png)
 
