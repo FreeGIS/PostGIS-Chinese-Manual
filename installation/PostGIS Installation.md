@@ -121,7 +121,7 @@ sfcgal依赖boost,cgal，需要提前编译，编译默认目录，避免编译s
 [root@ ~]# wget https://github.com/Oslandia/SFCGAL/archive/v1.3.7.tar.gz
 [root@ ~]# tar -zxvf v1.3.7.tar.gz   
 [root@ ~]# cd SFCGAL-1.3.7  
-[root@ SFCGAL-1.3.7]# mkdir build & cd build 
+[root@ SFCGAL-1.3.7]# mkdir build && cd build 
 [root@ build]# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/sfcgal-1.3.7 ..
 [root@ build]# make -j 4    
 [root@ build]# make install   
